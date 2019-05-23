@@ -38,6 +38,6 @@ def get_password_from_enviormet_variable() -> str:
     Ejemplos
     --------
     Obtener nombre de usuario
-    >>> usuario = descarga_datos.util.get_password_from_enviormet_variable()
+    >>> contrasenia = descarga_datos.util.get_password_from_enviormet_variable()
     """
     return os.environ["BITBUCKET_PASSWORD"]
