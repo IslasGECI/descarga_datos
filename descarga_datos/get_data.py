@@ -1,7 +1,7 @@
 import urllib.request
 
 
-def download_file_from_repo(url: str, destionation_filename: str, user: str, passwd: str):
+def download_file_from_repo(url: str, destionation_filename: str, user: str, password: str):
     """
     Función que permite descargar archivos desde repositorios de bitbucket
 
@@ -31,7 +31,7 @@ def download_file_from_repo(url: str, destionation_filename: str, user: str, pas
     ... os.environ['BITBUCKET_PASSWORD'])
     """
     manejador_autenticacion = urllib.request.HTTPBasicAuthHandler()
-    manejador_autenticacion.add_password(None, uri=url, user=user, passwd=passwd)
+    manejador_autenticacion.add_password(None, uri=url, user=user, passwd=password)
     conexion = urllib.request.build_opener(manejador_autenticacion)
     urllib.request.install_opener(conexion)
     urllib.request.urlretrieve(url, filename)
