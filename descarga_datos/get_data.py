@@ -16,7 +16,7 @@ def download_file_from_repo(url: str, destionation_filename: str, user: str, pas
     `user : str`
         Nombre de usuario de Bitbucket
 
-    `passwd : str`
+    `password : str`
         Contraseña del usuario
     
     Notas
