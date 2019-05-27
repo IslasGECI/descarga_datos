@@ -15,7 +15,7 @@ class Analysis:
 
     def _construct_datafile_array(self, data):
         archivos_datos = []
-        for datos in self._data:
+        for datos in data:
             archivos_datos.append(DataFile(**datos))
         return archivos_datos
 
