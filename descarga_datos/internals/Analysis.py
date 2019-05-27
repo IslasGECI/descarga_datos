@@ -3,8 +3,8 @@ from .DataFile import DataFile
 
 class Analysis:
     def __init__(self, name: str, description: str, docker_parent_image: str,
-                 report: str, results: List, scripts: List, data: List,
-                 requirements: List):
+                 report: str, results: list, scripts: list, data: list,
+                 requirements: list):
         self._name = name
         self._description = description
         self._docker_parent_image = docker_parent_image
