@@ -104,13 +104,16 @@ class Analysis:
                 return True
         return False
 
-    def get_url_to_file(self, filename: str):
+    def get_url_to_file(self, filename: str, user: str="IslasGECI"):
         """
         Regresa el url de donde se puede descargar el archivo desde Bitbucket
 
         Parámetros
         ----------
         `filename str`
+            Usuario que es dueño del repositorio de datos, por default será IslasGECI
+
+        `user str`
             Usuario que es dueño del repositorio de datos, por default será IslasGECI
 
         Notas
