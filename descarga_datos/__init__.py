@@ -1,2 +1,2 @@
-from .get_data import download_file_from_repo
+from .network import *
 from .internals import *
