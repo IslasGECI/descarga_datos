@@ -26,9 +26,10 @@ def download_file_from_repo(url: str, destionation_filename: str, user: str, pas
     Ejemplos
     --------
     Descargar un archivo
+    >>> usuario = descarga_datos.util.get_user_from_enviorment_variable()
+    >>> contrasenia = descarga_datos.util.get_password_from_enviormet_variable()
     >>> url = 'https://bitbucket.org/usuario_prueba/repo_datos/raw/9fd54/datos.xlsx'
-    >>> download_file(url, 'inst/extdata/datos.xlsx', os.environ['BITBUCKET_USERNAME'],
-    ... os.environ['BITBUCKET_PASSWORD'])
+    >>> download_file(url, 'inst/extdata/datos.xlsx', usuario, contrasenia)
     """
     manejador_autenticacion = urllib.request.HTTPBasicAuthHandler()
     manejador_autenticacion.add_password(None, uri=url, user=user, passwd=password)
