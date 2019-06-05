@@ -42,8 +42,8 @@ class TestAnalysis(unittest.TestCase):
         self.assertEqual(
             self.analisis.name, "Cantidad de individuos por transecto con captura y recaptura")
 
-    def test_depends_of_file(self):
-        self.assertTrue(self.analisis.depends_on_file(
+    def test_depends_on_datafile(self):
+        self.assertTrue(self.analisis.depends_on_datafile(
             "roedores_capturarecaptura_cedros.csv"))
 
     def test_get_utl_to_file(self):

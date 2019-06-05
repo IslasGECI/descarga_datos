@@ -77,7 +77,7 @@ class Analysis:
     def name(self):
         return self._name
 
-    def depends_on_file(self, filename: str) -> bool:
+    def depends_on_datafile(self, filename: str) -> bool:
         """
         Este método verifica si el análisis depende de algún archivo en específico
 
@@ -96,7 +96,7 @@ class Analysis:
         >>> with open('analyses.json', 'r') as archivo_analysis:
         ...     diccionario_analysis = json.loads(TEXTO_ANALYSIS)
         >>> analisis = Analysis(**diccionario_analysis[0])
-        >>> analisis.depends_on_file('archivo_ejemplo.csv')
+        >>> analisis.depends_on_datafile('archivo_ejemplo.csv')
         True
         """
         for archivo_datos in self._data:
