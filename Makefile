@@ -11,5 +11,5 @@ README.pdf: README.md # La fuente README.md debe estar en UTF-8 por el pandoc
 
 # Esta sección corre las pruebas
 tests:
-	docker build -t $(nombreRepositorio) .
-	docker run -it -e BITBUCKET_USERNAME=${BITBUCKET_USERNAME} -e BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD} $(nombreRepositorio) bash -c "pip install . && $(foreach script, $(pruebasModulo), python -m $(nombreRepositorio).tests.$(script) -v; )"
+	docker build --tag $(nombreRepositorio) .
+	docker run --interactive --tty --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD} $(nombreRepositorio) bash -c "pip install . && $(foreach script, $(pruebasModulo), python -m $(nombreRepositorio).tests.$(script) -v; )"
