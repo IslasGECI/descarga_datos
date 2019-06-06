@@ -54,7 +54,7 @@ class Analysis:
     >>> with open('analyses.json', 'r') as archivo_analysis:
     ...     diccionario_analysis = json.loads(TEXTO_ANALYSIS)
     >>> analisis = Analysis(**diccionario_analysis[0])
-    >>> analisis.get_url_to_file('archivo_ejemplo.csv')
+    >>> analisis.get_url_to_datafile('archivo_ejemplo.csv')
     """
     def __init__(self, name: str, description: str, docker_parent_image: str,
                  report: str, results: list, scripts: list, data: list,
@@ -96,7 +96,7 @@ class Analysis:
         >>> with open('analyses.json', 'r') as archivo_analysis:
         ...     diccionario_analysis = json.loads(TEXTO_ANALYSIS)
         >>> analisis = Analysis(**diccionario_analysis[0])
-        >>> analisis.depends_on_datafile('archivo_ejemplo.csv')
+        >>> analisis.is_dependent_on_datafile('archivo_ejemplo.csv')
         True
         """
         for archivo_datos in self._data:
@@ -126,7 +126,7 @@ class Analysis:
         >>> with open('analyses.json', 'r') as archivo_analysis:
         ...     diccionario_analysis = json.loads(TEXTO_ANALYSIS)
         >>> analisis = Analysis(**diccionario_analysis[0])
-        >>> analisis.get_url_to_file('archivo_ejemplo.csv')
+        >>> analisis.get_url_to_datafile('archivo_ejemplo.csv')
         """
         for archivo_datos in self._data:
             if archivo_datos.filename == filename:
