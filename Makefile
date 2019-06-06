@@ -1,13 +1,7 @@
-
-all: README.pdf
-
+# Variable que guarda el nombre del paquete
 nombreRepositorio := $(notdir $(CURDIR))
+# Vairable que contiene la lista de pruebas del paquete
 pruebasModulo := $(basename $(notdir $(wildcard $(nombreRepositorio)/tests/test_*.py)))
-
-# Reglas para construir los objetivos principales
-README.pdf: README.md # La fuente README.md debe estar en UTF-8 por el pandoc
-	pandoc README.md -o README.pdf
-	start "" /max "README.pdf"
 
 # Esta sección corre las pruebas
 tests:
