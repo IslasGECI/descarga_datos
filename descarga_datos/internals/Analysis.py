@@ -38,7 +38,7 @@ class Analysis:
     
     Métodos
     -------
-    `is_dependant_on_datafile(filename: str): str`
+    `is_dependent_on_datafile(filename: str): str`
         Verifica si este análisis depende de algún archivo especificado
 
     `get_url_to_file(filename: str, user: str): str`
@@ -77,7 +77,7 @@ class Analysis:
     def name(self):
         return self._name
 
-    def is_dependant_on_datafile(self, filename: str) -> bool:
+    def is_dependent_on_datafile(self, filename: str) -> bool:
         """
         Este método verifica si el análisis depende de algún archivo en específico
 
