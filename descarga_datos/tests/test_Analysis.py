@@ -46,8 +46,8 @@ class TestAnalysis(unittest.TestCase):
         self.assertTrue(self.analisis.is_dependent_on_datafile(
             "roedores_capturarecaptura_cedros.csv"))
 
-    def test_get_url_to_file(self):
-        self.assertTrue(self.analisis.get_url_to_file("roedores_capturarecaptura_cedros.csv"),
+    def test_get_url_to_datafile(self):
+        self.assertTrue(self.analisis.get_url_to_datafile("roedores_capturarecaptura_cedros.csv"),
                         "https://bitbucket.org/IslasGECI/datapackage/raw/d2ca5a04850b/roedores_capturarecaptura_cedros/roedores_capturarecaptura_cedros.csv")
 
 
