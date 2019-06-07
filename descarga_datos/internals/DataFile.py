@@ -16,6 +16,10 @@ class DataFile:
 
     `version : str`
         Hash de la consignación en la que se encuentran los datos
+
+    `type : str`
+        Cadena de texto que representa el tipo de datos, ej. datapackage, gpx,
+        csv, excel.
     
     Atributos
     ----------
