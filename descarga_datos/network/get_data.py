@@ -1,4 +1,5 @@
 import urllib.request
+import os
 
 
 def download_file_from_repo(url: str, destionation_filename: str, user: str, password: str):
@@ -31,8 +32,9 @@ def download_file_from_repo(url: str, destionation_filename: str, user: str, pas
     >>> url = 'https://bitbucket.org/usuario_prueba/repo_datos/raw/9fd54/datos.xlsx'
     >>> download_file(url, 'inst/extdata/datos.xlsx', usuario, contrasenia)
     """
-    manejador_autenticacion = urllib.request.HTTPBasicAuthHandler()
+    manejador_autenticacion = urllib.request.HTTPPasswordMgrWithDefaultRealm()
     manejador_autenticacion.add_password(None, uri=url, user=user, passwd=password)
-    conexion = urllib.request.build_opener(manejador_autenticacion)
+    handler = urllib.request.HTTPBasicAuthHandler(manejador_autenticacion)
+    conexion = urllib.request.build_opener(handler)
     urllib.request.install_opener(conexion)
-    urllib.request.urlretrieve(url, filename)
+    urllib.request.urlretrieve(url, os.path.join(destionation_filename, os.path.split(url)[1]))
