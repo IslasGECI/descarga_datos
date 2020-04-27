@@ -1,9 +1,19 @@
-# Variable que guarda el nombre del paquete
-nombreRepositorio := $(notdir $(CURDIR))
-# Vairable que contiene la lista de pruebas del paquete
-pruebasModulo := $(basename $(notdir $(wildcard $(nombreRepositorio)/tests/test_*.py)))
+mutation: install
+	mutmut run --paths-to-mutate descarga_datos
 
-# Esta sección corre las pruebas
+.PHONY: \
+    clean \
+    install \
+    mutation \
+    tests \
+
+clean:
+	rm --force --recursive .mutmut-cache
+	rm --force --recursive .pytest_cache
+	rm --force --recursive $$(find . -name '__pycache__')	
+
+install:
+	pip install --editable .
+
 tests:
-	docker build --tag $(nombreRepositorio) .
-	docker run --interactive --tty --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD} $(nombreRepositorio) bash -c "pip install . && $(foreach script, $(pruebasModulo), python -m $(nombreRepositorio).tests.$(script) -v; )"
+	pytest --cov=descarga_datos --cov-report=term --verbose
