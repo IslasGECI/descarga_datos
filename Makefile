@@ -1,10 +1,10 @@
-mutation: install
+mutants: install
 	mutmut run --paths-to-mutate descarga_datos
 
 .PHONY: \
     clean \
     install \
-    mutation \
+    mutants \
     tests \
 
 clean:

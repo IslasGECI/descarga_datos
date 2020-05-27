@@ -1,7 +1,7 @@
 import json
 import unittest
 
-from .. import Analysis
+from descarga_datos import Analysis
 
 TEXTO_ANALYSIS = """[
     {
