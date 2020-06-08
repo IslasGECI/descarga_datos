@@ -104,7 +104,7 @@ class Analysis:
                 return True
         return False
 
-    def get_url_to_datafile(self, filename: str, user: str="IslasGECI"):
+    def get_url_to_datafile(self, filename: str):
         """
         Regresa el url de donde se puede descargar el archivo desde Bitbucket
 
