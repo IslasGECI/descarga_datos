@@ -3,6 +3,7 @@ mutants: install
 
 .PHONY: \
     clean \
+    format \
     install \
     mutants \
     tests \
@@ -10,7 +11,11 @@ mutants: install
 clean:
 	rm --force --recursive .mutmut-cache
 	rm --force --recursive .pytest_cache
-	rm --force --recursive $$(find . -name '__pycache__')	
+	rm --force --recursive $$(find . -name '__pycache__')
+
+format:
+	black --check descarga_datos
+	black --check tests
 
 install:
 	pip install --editable .

@@ -1,7 +1,8 @@
 FROM python:3
-COPY . /workdir/
 WORKDIR /workdir
+COPY . .
 RUN pip install \
+    black \
     codecov \
     mutmut \
     pytest \

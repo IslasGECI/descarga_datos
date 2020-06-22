@@ -10,4 +10,6 @@ jobs:
     - name: Construye imagen
       run: docker build --tag islasgeci/descarga_datos .
     - name: Ejecuta objetivo principal del Makefile
-      run: docker run --volume ${PWD}:/workdir islasgeci/descarga_datos make
+      run: docker run islasgeci/descarga_datos make
+    - name: Verifica formato
+      run: docker run islasgeci/descarga_datos make format
