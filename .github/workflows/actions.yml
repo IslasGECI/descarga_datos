@@ -8,8 +8,10 @@ jobs:
     - name: Copia repositorio
       uses: actions/checkout@v2
     - name: Construye imagen
-      run: docker build --tag islasgeci/descarga_datos .
-    - name: Ejecuta objetivo principal del Makefile
-      run: docker run islasgeci/descarga_datos make
-    - name: Verifica formato
-      run: docker run islasgeci/descarga_datos make format
+      run: docker build --tag islasgeci .
+    - name: Verifica el formato
+      run: docker run islasgeci make format
+    - name: Corre pruebas
+      run: docker run islasgeci make tests
+    - name: Evalua resistencia a mutaciones
+      run: docker run islasgeci make mutants
