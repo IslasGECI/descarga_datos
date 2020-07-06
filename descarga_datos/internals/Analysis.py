@@ -56,9 +56,18 @@ class Analysis:
     >>> analisis = Analysis(**diccionario_analysis[0])
     >>> analisis.get_url_to_datafile('archivo_ejemplo.csv')
     """
-    def __init__(self, name: str, description: str, docker_parent_image: str,
-                 report: str, results: list, scripts: list, data: list,
-                 requirements: list):
+
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        docker_parent_image: str,
+        report: str,
+        results: list,
+        scripts: list,
+        data: list,
+        requirements: list,
+    ):
         self._name = name
         self._description = description
         self._docker_parent_image = docker_parent_image
