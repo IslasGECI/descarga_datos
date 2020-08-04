@@ -49,3 +49,10 @@ def test_get_url_to_datafile():
         analisis.get_url_to_datafile("roedores_capturarecaptura_cedros.csv")
         == "https://bitbucket.org/IslasGECI/datapackage/raw/d2ca5a04850b/roedores_capturarecaptura_cedros/roedores_capturarecaptura_cedros.csv",
     )
+
+def test_init():
+    assert analisis._description == "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros"
+    assert analisis._docker_parent_image == "islasgeci/extension:d25d"
+    assert analisis._report == ""
+    assert analisis._results == []
+    assert analisis._scripts == []
