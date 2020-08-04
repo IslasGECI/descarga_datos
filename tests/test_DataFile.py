@@ -1,5 +1,4 @@
 import json
-import unittest
 
 from descarga_datos import DataFile
 
@@ -12,18 +11,13 @@ TEXTO_ANALYSIS = """{
 }"""
 
 
-class TestDataFile(unittest.TestCase):
-    def setUp(self):
-        diccionario_analysis = json.loads(TEXTO_ANALYSIS)
-        analisis = diccionario_analysis
-        self.datafile = DataFile(**analisis)
-
-    def test_datafile_filename_is_property(self):
-        self.assertEqual(self.datafile.filename, "roedores_capturarecaptura_cedros.csv")
-
-    def test_analysis_name(self):
-        self.assertEqual(self.datafile.path, "roedores_capturarecaptura_cedros")
+analisis: dict = json.loads(TEXTO_ANALYSIS)
+datafile = DataFile(**analisis)
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_datafile_filename_is_property():
+    assert datafile.filename == "roedores_capturarecaptura_cedros.csv"
+
+
+def test_analysis_name():
+    assert datafile.path == "roedores_capturarecaptura_cedros"
