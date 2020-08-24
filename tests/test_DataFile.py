@@ -16,8 +16,8 @@ datafile = DataFile(**analisis)
 
 
 def test_datafile_filename_is_property():
-    assert datafile.filename == "roedores_capturarecaptura_cedros.csv"
+    assert datafile.filename == analisis["filename"]
 
 
 def test_analysis_name():
-    assert datafile.path == "roedores_capturarecaptura_cedros"
+    assert datafile.path == analisis["path"]
