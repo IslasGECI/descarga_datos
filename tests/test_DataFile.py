@@ -21,3 +21,9 @@ def test_datafile_filename_is_property():
 
 def test_analysis_name():
     assert datafile.path == analisis["path"]
+
+
+def test_init():
+    assert datafile._source == analisis["source"]
+    assert datafile._version == analisis["version"]
+    assert datafile._type == analisis["type"]
