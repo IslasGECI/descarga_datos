@@ -30,12 +30,12 @@ class Analysis:
 
     `requirements: list`
         Dependencias de paquetes necesarios para generar los resultados
-    
+
     Atributos
     ----------
     `name : str`
         Nombre del análisis
-    
+
     Métodos
     -------
     `is_dependent_on_datafile(filename: str): str`
@@ -43,11 +43,11 @@ class Analysis:
 
     `get_url_to_datafile(filename: str, user: str): str`
         Regresa el url de donde se puede descargar el archivo de datos
-    
+
     Notas
     -----
     None
-    
+
     Ejemplos
     --------
     Ejemplo de como cargar un archivo analyses.json
