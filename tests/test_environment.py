@@ -1,4 +1,3 @@
-import json
 import os
 
 from descarga_datos import get_user_from_enviorment_variable
