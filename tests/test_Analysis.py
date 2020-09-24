@@ -2,28 +2,26 @@ import json
 
 from descarga_datos import Analysis
 
-TEXTO_ANALYSIS = """[
-    {
-        "name": "Cantidad de individuos por transecto con captura y recaptura",
-        "description": "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros",
-        "docker_parent_image": "islasgeci/extension:d25d",
-        "report": "",
-        "results": [
-        ],
-        "scripts": [
-        ],
-        "data": [
-            {
-                "source": "datapackage",
-                "path": "roedores_capturarecaptura_cedros",
-                "filename": "roedores_capturarecaptura_cedros.csv",
-                "version": "d2ca5a04850b",
-                "type": "datapackage"
-            }
-        ],
-        "requirements": []
-    }
-]"""
+TEXTO_ANALYSIS = """[{
+    "name": "Cantidad de individuos por transecto con captura y recaptura",
+    "description": "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros",
+    "docker_parent_image": "islasgeci/extension:d25d",
+    "report": "",
+    "results": [
+    ],
+    "scripts": [
+    ],
+    "data": [
+        {
+            "source": "datapackage",
+            "path": "roedores_capturarecaptura_cedros",
+            "filename": "roedores_capturarecaptura_cedros.csv",
+            "version": "d2ca5a04850b",
+            "type": "datapackage"
+        }
+    ],
+    "requirements": []
+}]"""
 
 
 diccionario_analysis = json.loads(TEXTO_ANALYSIS)

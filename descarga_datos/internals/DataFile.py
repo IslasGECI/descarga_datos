@@ -42,7 +42,8 @@ class DataFile:
     Ejemplos
     --------
     Crear un archivo
-    >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos", "datos.csv", "9cc34")
+    >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
+                                                     "datos.csv", "9cc34")
     Obtener url a archivo
     >>> archivo.get_url_to_file()
     'https://bitbucket.org/IslasGECI/repo_datos_inventado/raw/9cc34/carpeta_datos/datos.csv'
@@ -85,10 +86,12 @@ class DataFile:
         Ejemplos
         --------
         Obtener url a archivo
-        >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos", "datos.csv", "9cc34")
+        >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
+                                                         "datos.csv", "9cc34")
         >>> archivo.get_url_to_file()
         'https://bitbucket.org/IslasGECI/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
         >>> archivo.get_url_to_file(user="usuario")
         'https://bitbucket.org/usuario/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
         """
-        return f"https://bitbucket.org/{user}/{self._source}/raw/{self._version}/{self._path}/{self._filename}"
+        base_url = "https://bitbucket.org/"
+        return base_url + f"{user}/{self._source}/raw/{self._version}/{self._path}/{self._filename}"
