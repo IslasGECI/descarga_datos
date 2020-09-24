@@ -1,2 +1,2 @@
-from .Analysis import Analysis
-from .DataFile import DataFile
+from .Analysis import Analysis  # noqa
+from .DataFile import DataFile  # noqa
