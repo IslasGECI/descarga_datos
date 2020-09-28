@@ -3,7 +3,16 @@ all: mutants
 repo = descarga_datos
 codecov_token = ed02def2-1ad1-4e23-81cc-0ede5dac22a7
 
-.PHONY: all clean format install lint mutants tests
+define lint
+	pylint \
+        --disable=bad-continuation \
+        --disable=missing-class-docstring \
+        --disable=missing-function-docstring \
+        --disable=missing-module-docstring \
+        ${1}
+endef
+
+.PHONY: all clean format install linter mutants tests
 
 check:
 	black --check --line-length 100 ${repo}
@@ -24,9 +33,9 @@ format:
 install:
 	pip install --editable .
 
-lint:
-	pylint ${repo}
-	pylint tests
+linter:
+	$(call lint, ${repo})
+	$(call lint, tests)
 
 mutants:
 	mutmut run --paths-to-mutate ${repo}
