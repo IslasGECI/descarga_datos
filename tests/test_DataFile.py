@@ -16,14 +16,24 @@ datafile = DataFile(**analisis)
 
 
 def test_datafile_filename_is_property():
-    assert datafile.filename == analisis["filename"]
+    obtained_filename = datafile.filename
+    expected_filename = analisis["filename"]
+    assert obtained_filename == expected_filename
 
 
 def test_analysis_name():
-    assert datafile.path == analisis["path"]
+    obtained_path = datafile.path
+    expected_path = analisis["path"]
+    assert obtained_path == expected_path
 
 
 def test_init():
-    assert datafile._source == analisis["source"]
-    assert datafile._version == analisis["version"]
-    assert datafile._type == analisis["type"]
+    obtained_source = datafile._source
+    expected_source = analisis["source"]
+    assert obtained_source == expected_source
+    obtained_version = datafile._version
+    expected_version = analisis["version"]
+    assert obtained_version == expected_version
+    obtained_type = datafile._type
+    expected_type = analisis["type"]
+    assert obtained_type == expected_type
