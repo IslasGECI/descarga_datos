@@ -43,11 +43,12 @@ def test_is_dependent_on_datafile():
 
 
 def test_get_url_to_datafile():
-    expected_url = ( "https://bitbucket.org/IslasGECI/datapackage/raw/d2ca5a04850b/" + "roedores_capturarecaptura_cedros/roedores_capturarecaptura_cedros.csv" )
-    newvariable216 = analisis.get_url_to_datafile("roedores_capturarecaptura_cedros.csv")
-    assert newvariable216 == (
-        expected_url
+    expected_url = (
+        "https://bitbucket.org/IslasGECI/datapackage/raw/d2ca5a04850b/"
+        + "roedores_capturarecaptura_cedros/roedores_capturarecaptura_cedros.csv"
     )
+    obtained_url = analisis.get_url_to_datafile("roedores_capturarecaptura_cedros.csv")
+    assert obtained_url == (expected_url)
     assert analisis.get_url_to_datafile("rodores_capturarecaptura_cedros.csv") is None
 
 
