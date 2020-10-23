@@ -30,11 +30,15 @@ analisis = Analysis(**analisis)
 
 
 def test_datafile_name():
-    assert analisis._data[0].filename == "roedores_capturarecaptura_cedros.csv"
+    obtained_filename = analisis._data[0].filename
+    expected_filename = "roedores_capturarecaptura_cedros.csv"
+    assert obtained_filename == expected_filename
 
 
 def test_analysis_name():
-    assert analisis.name == "Cantidad de individuos por transecto con captura y recaptura"
+    obtained_name = analisis.name
+    expected_name = "Cantidad de individuos por transecto con captura y recaptura"
+    assert obtained_name == expected_name
 
 
 def test_is_dependent_on_datafile():
@@ -53,11 +57,15 @@ def test_get_url_to_datafile():
 
 
 def test_init():
+    expected_description = "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros"
+    obtained_description = analisis._description
     assert (
-        analisis._description
-        == "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros"
+        obtained_description
+        == expected_description
     )
-    assert analisis._docker_parent_image == "islasgeci/extension:d25d"
+    obtained_docker_image = analisis._docker_parent_image
+    expected_docker_image = "islasgeci/extension:d25d"
+    assert obtained_docker_image == expected_docker_image
     assert analisis._report == ""
     assert analisis._results == []
     assert analisis._scripts == []
