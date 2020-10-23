@@ -57,12 +57,11 @@ def test_get_url_to_datafile():
 
 
 def test_init():
-    expected_description = "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros"
-    obtained_description = analisis._description
-    assert (
-        obtained_description
-        == expected_description
+    expected_description = (
+        "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros"
     )
+    obtained_description = analisis._description
+    assert obtained_description == expected_description
     obtained_docker_image = analisis._docker_parent_image
     expected_docker_image = "islasgeci/extension:d25d"
     assert obtained_docker_image == expected_docker_image
