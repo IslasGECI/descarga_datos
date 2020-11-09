@@ -17,4 +17,7 @@ jobs:
         BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }} 
       run: docker run islasgeci make tests --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD}
     - name: Evalua resistencia a mutaciones
-      run: docker run islasgeci make mutants
+      env: 
+        BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
+        BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }} 
+      run: docker run islasgeci make mutants --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD}
