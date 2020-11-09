@@ -14,7 +14,7 @@ jobs:
     - name: Muestre variables
       env: 
         usuario: ${{ secrets.BITBUCKET_USERNAME }}
-      run: echo ${ usuario }
+      run: echo "${usuario}"
     - name: Corre pruebas
       run: docker run islasgeci make tests
     - name: Evalua resistencia a mutaciones
