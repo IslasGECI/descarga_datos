@@ -11,11 +11,10 @@ jobs:
       run: docker build --tag islasgeci .
     - name: Verifica el formato
       run: docker run islasgeci make check
-    - name: Muestre variables
-      env: 
-        usuario: ${{ secrets.BITBUCKET_USERNAME }}
-      run: echo "${usuario}"
     - name: Corre pruebas
+      env: 
+        BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
+        BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }} 
       run: docker run islasgeci make tests
     - name: Evalua resistencia a mutaciones
       run: docker run islasgeci make mutants
