@@ -8,5 +8,5 @@ setup(
         "console_scripts": [
             "descarga_datos = descarga_datos.cli:cli",
         ]
-    }
+    },
 )
