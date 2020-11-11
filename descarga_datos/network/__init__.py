@@ -1,1 +1,1 @@
-from .get_data import download_file_from_repo
+from .get_data import download_file_from_repo  # noqa

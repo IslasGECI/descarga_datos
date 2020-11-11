@@ -20,7 +20,7 @@ class DataFile:
     `type : str`
         Cadena de texto que representa el tipo de datos, ej. datapackage, gpx,
         csv, excel.
-    
+
     Atributos
     ----------
     `filename : str`
@@ -29,21 +29,22 @@ class DataFile:
     `path : str`
         Cadena que representa la ruta de consignación del archivo
 
-    
+
     Métodos
     -------
     `get_url_to_file(user: str): str`
         Regresa el url de donde se puede descargar el archivo de datos
-    
+
     Notas
     -----
     None
-    
+
     Ejemplos
     --------
     Crear un archivo
-    >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos", "datos.csv", "9cc34")
-    Obtener url a archivo        
+    >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
+                                                     "datos.csv", "9cc34")
+    Obtener url a archivo
     >>> archivo.get_url_to_file()
     'https://bitbucket.org/IslasGECI/repo_datos_inventado/raw/9cc34/carpeta_datos/datos.csv'
     """
@@ -85,10 +86,12 @@ class DataFile:
         Ejemplos
         --------
         Obtener url a archivo
-        >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos", "datos.csv", "9cc34")
+        >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
+                                                         "datos.csv", "9cc34")
         >>> archivo.get_url_to_file()
-        'https://bitbucket.org/IslasGECI/repo_datos_inventado/raw/9cc34/carpeta_datos/datos.csv'
-        >>> archivo.get_url_to_file(user="usuario_inventado")
-        'https://bitbucket.org/usuario_inventado/repo_datos_inventado/raw/9cc34/carpeta_datos/datos.csv'
+        'https://bitbucket.org/IslasGECI/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
+        >>> archivo.get_url_to_file(user="usuario")
+        'https://bitbucket.org/usuario/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
         """
-        return f"https://bitbucket.org/{user}/{self._source}/raw/{self._version}/{self._path}/{self._filename}"
+        base_url = "https://bitbucket.org/"
+        return base_url + f"{user}/{self._source}/raw/{self._version}/{self._path}/{self._filename}"

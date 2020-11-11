@@ -30,12 +30,12 @@ class Analysis:
 
     `requirements: list`
         Dependencias de paquetes necesarios para generar los resultados
-    
+
     Atributos
     ----------
     `name : str`
         Nombre del análisis
-    
+
     Métodos
     -------
     `is_dependent_on_datafile(filename: str): str`
@@ -43,11 +43,11 @@ class Analysis:
 
     `get_url_to_datafile(filename: str, user: str): str`
         Regresa el url de donde se puede descargar el archivo de datos
-    
+
     Notas
     -----
     None
-    
+
     Ejemplos
     --------
     Ejemplo de como cargar un archivo analyses.json
@@ -56,9 +56,18 @@ class Analysis:
     >>> analisis = Analysis(**diccionario_analysis[0])
     >>> analisis.get_url_to_datafile('archivo_ejemplo.csv')
     """
-    def __init__(self, name: str, description: str, docker_parent_image: str,
-                 report: str, results: list, scripts: list, data: list,
-                 requirements: list):
+
+    def __init__(
+        self,
+        name: str,
+        description: str,
+        docker_parent_image: str,
+        report: str,
+        results: list,
+        scripts: list,
+        data: list,
+        requirements: list,
+    ):
         self._name = name
         self._description = description
         self._docker_parent_image = docker_parent_image
@@ -104,7 +113,7 @@ class Analysis:
                 return True
         return False
 
-    def get_url_to_datafile(self, filename: str, user: str="IslasGECI"):
+    def get_url_to_datafile(self, filename: str):
         """
         Regresa el url de donde se puede descargar el archivo desde Bitbucket
 

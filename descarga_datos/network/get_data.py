@@ -19,11 +19,11 @@ def download_file_from_repo(url: str, destionation_filename: str, user: str, pas
 
     `password : str`
         Contraseña del usuario
-    
+
     Notas
     -----
     Ninguna
-    
+
     Ejemplos
     --------
     Descargar un archivo
