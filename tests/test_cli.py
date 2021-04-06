@@ -4,8 +4,6 @@ import os
 import sys
 
 
-
-
 TEXTO_ANALYSIS = """[
     {
         "docker_parent_image": "islasgeci/jupyter:5b83",
@@ -56,6 +54,7 @@ TEXTO_ANALYSIS = """[
 if not os.path.exists("./results"):
     os.mkdir("./results")
 
+
 def test_descarga_archivo():
     archivo_existe = os.path.isfile("./analyses.json")
     if not archivo_existe:
@@ -64,16 +63,23 @@ def test_descarga_archivo():
             archivo_salida.close()
     descarga_archivo(".", "./results", "camaras_trampa_gatos_isla_guadalupe")
 
+
 def assert_descarga_2_datapackage(path, name):
     os.system(f"descarga_datos datapackage.json ./results {path}")
     with open("./results/datapackage.json", "r") as read_file:
-        diccionario_analysis = json.load(read_file)    
+        diccionario_analysis = json.load(read_file)
     assert diccionario_analysis["name"] == name
 
+
 def test_descarga_2_datapackage():
-    assert_descarga_2_datapackage("camaras_trampa_gatos_isla_guadalupe", "camaras_trampa_gatos_isla_guadalupe_2018_2021")
+    assert_descarga_2_datapackage(
+        "camaras_trampa_gatos_isla_guadalupe", "camaras_trampa_gatos_isla_guadalupe_2018_2021"
+    )
     assert os.path.isfile("./results/datapackage.json")
-    assert_descarga_2_datapackage("nidos_busqueda_aves_marinas", "nidos_busqueda_avesmarinas_todasislas")
+    assert_descarga_2_datapackage(
+        "nidos_busqueda_aves_marinas", "nidos_busqueda_avesmarinas_todasislas"
+    )
+
 
 def test_cli():
     sys.argv = ["cli.py", ".", "./results", "camaras_trampa_gatos_isla_guadalupe"]
