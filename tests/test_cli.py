@@ -64,17 +64,16 @@ def test_descarga_archivo():
             archivo_salida.close()
     descarga_archivo(".", "./results", "camaras_trampa_gatos_isla_guadalupe")
 
+def assert_descarga_2_datapackage(path, name):
+    os.system(f"descarga_datos datapackage.json ./results {path}")
+    with open("./results/datapackage.json", "r") as read_file:
+        diccionario_analysis = json.load(read_file)    
+    assert diccionario_analysis["name"] == name
 
 def test_descarga_2_datapackage():
-    os.system("descarga_datos datapackage.json ./results camaras_trampa_gatos_isla_guadalupe")
+    assert_descarga_2_datapackage("camaras_trampa_gatos_isla_guadalupe", "camaras_trampa_gatos_isla_guadalupe_2018_2021")
     assert os.path.isfile("./results/datapackage.json")
-    with open("./results/datapackage.json", "r") as read_file:
-        diccionario_analysis = json.load(read_file)    
-    assert diccionario_analysis["name"] == "camaras_trampa_gatos_isla_guadalupe_2018_2021"
-    os.system("descarga_datos datapackage.json ./results nidos_busqueda_aves_marinas")
-    with open("./results/datapackage.json", "r") as read_file:
-        diccionario_analysis = json.load(read_file)    
-    assert diccionario_analysis["name"] == "nidos_busqueda_avesmarinas_todasislas"
+    assert_descarga_2_datapackage("nidos_busqueda_aves_marinas", "nidos_busqueda_avesmarinas_todasislas")
 
 def test_cli():
     sys.argv = ["cli.py", ".", "./results", "camaras_trampa_gatos_isla_guadalupe"]
