@@ -86,7 +86,7 @@ class Analysis:
     def name(self):
         return self._name
 
-    def is_dependent_on_datafile(self, filename: str) -> bool:
+    def is_dependent_on_datafile(self, path: str, filename: str) -> bool:
         """
         Este método verifica si el análisis depende de algún archivo en específico
 
