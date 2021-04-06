@@ -42,7 +42,7 @@ linter:
 	$(call lint, ${repo})
 	$(call lint, tests)
 
-mutants:
+mutants: install
 	mutmut run --paths-to-mutate ${repo}
 
 tests: install
