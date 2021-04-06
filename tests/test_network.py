@@ -1,9 +1,13 @@
 import descarga_datos
+import os
 from descarga_datos import download_file_from_repo
 from descarga_datos.utils import (
     get_password_from_enviormet_variable,
     get_user_from_enviorment_variable,
 )
+
+if not os.path.exists("./results"):
+    os.mkdir("./results")
 
 
 def test_download_file_from_repo():
@@ -15,7 +19,7 @@ def test_download_file_from_repo():
         "csv",
     )
     url = archivo.get_url_to_file()
-    destination_folder = "./"
+    destination_folder = "./results"
     download_file_from_repo(
         url,
         destination_folder,

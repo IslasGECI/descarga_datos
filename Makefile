@@ -21,10 +21,15 @@ check:
 	flake8 --max-line-length 100 tests
 
 clean:
+	rm --force --recursive .pytest_cache
+	rm --force --recursive ${repo}.egg-info
+	rm --force --recursive ${repo}/__pycache__
+	rm --force --recursive ${repo}/**/__pycache__
+	rm --force --recursive results
+	rm --force --recursive test/__pycache__
+	rm --force .coverage
 	rm --force .mutmut-cache
-	rm --recursive --force ${repo}.egg-info
-	rm --recursive --force ${repo}/__pycache__
-	rm --recursive --force test/__pycache__
+	rm --force analyses.json
 
 format:
 	black --line-length 100 ${repo}
@@ -37,9 +42,12 @@ linter:
 	$(call lint, ${repo})
 	$(call lint, tests)
 
-mutants:
+mutants: install
 	mutmut run --paths-to-mutate ${repo}
 
 tests: install
+	pytest --verbose
+
+coverage: install
 	pytest --cov=${repo} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
