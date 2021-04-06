@@ -6,4 +6,3 @@ __pycache__/
 *.xml
 /*.csv
 /*.json
-analyses.json
