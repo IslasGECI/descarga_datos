@@ -18,7 +18,22 @@ TEXTO_ANALYSIS = """[{
             "filename": "roedores_capturarecaptura_cedros.csv",
             "version": "d2ca5a04850b",
             "type": "datapackage"
+        },
+        {
+            "source": "tabular_data_packages",
+            "version": "1162b173",
+            "path": "camaras_trampa_gatos_isla_guadalupe",
+            "type": "json",
+            "filename": "datapackage.json"
+        },
+        {
+            "source": "archivos_binarios",
+            "version": "d60fea211",
+            "path": "shp/guadalupe",
+            "type": "datapackage",
+            "filename": "datapackage.json"
         }
+
     ],
     "requirements": []
 }]"""
@@ -42,18 +57,57 @@ def test_analysis_name():
 
 
 def test_is_dependent_on_datafile():
-    assert analisis.is_dependent_on_datafile("roedores_capturarecaptura_cedros.csv")
-    assert not analisis.is_dependent_on_datafile("rodores_capturarecaptura_cedros.csv")
+    assert analisis.is_dependent_on_datafile(
+        "roedores_capturarecaptura_cedros", "roedores_capturarecaptura_cedros.csv"
+    )
+    assert not analisis.is_dependent_on_datafile(
+        "roedores_capturarecaptura_cedros", "rodores_capturarecaptura_cedros.csv"
+    )
+
+
+def assert_get_url_to_datafile(dictionary):
+    expected_url = (
+        f"https://bitbucket.org/IslasGECI/{dictionary['source']}/raw/{dictionary['version']}/"
+        + f"{dictionary['path']}/{dictionary['filename']}"
+    )
+    obtained_url = analisis.get_url_to_datafile(dictionary["path"], dictionary["filename"])
+    assert obtained_url == expected_url
 
 
 def test_get_url_to_datafile():
-    expected_url = (
-        "https://bitbucket.org/IslasGECI/datapackage/raw/d2ca5a04850b/"
-        + "roedores_capturarecaptura_cedros/roedores_capturarecaptura_cedros.csv"
+    datafile = {
+        "source": "datapackage",
+        "path": "roedores_capturarecaptura_cedros",
+        "filename": "roedores_capturarecaptura_cedros.csv",
+        "version": "d2ca5a04850b",
+        "type": "datapackage",
+    }
+    assert_get_url_to_datafile(datafile)
+    assert (
+        analisis.get_url_to_datafile(
+            "roedores_capturarecaptura_cedros", "rodores_capturarecaptura_cedros.csv"
+        )
+        is None
     )
-    obtained_url = analisis.get_url_to_datafile("roedores_capturarecaptura_cedros.csv")
-    assert obtained_url == (expected_url)
-    assert analisis.get_url_to_datafile("rodores_capturarecaptura_cedros.csv") is None
+
+
+def test_get_url_to_datafile_two_paths():
+    first_datafile = {
+        "source": "archivos_binarios",
+        "version": "d60fea211",
+        "path": "shp/guadalupe",
+        "type": "datapackage",
+        "filename": "datapackage.json",
+    }
+    assert_get_url_to_datafile(first_datafile)
+    second_datafile = {
+        "source": "tabular_data_packages",
+        "version": "1162b173",
+        "path": "camaras_trampa_gatos_isla_guadalupe",
+        "type": "json",
+        "filename": "datapackage.json",
+    }
+    assert_get_url_to_datafile(second_datafile)
 
 
 def test_init():
