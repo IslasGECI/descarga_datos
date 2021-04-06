@@ -89,22 +89,21 @@ def test_get_url_to_datafile():
 
 def test_get_url_to_datafile_two_paths():
     first_datafile = {
-            "source": "archivos_binarios",
-            "version": "d60fea211",
-            "path": "shp/guadalupe",
-            "type": "datapackage",
-            "filename": "datapackage.json"
-        }
+        "source": "archivos_binarios",
+        "version": "d60fea211",
+        "path": "shp/guadalupe",
+        "type": "datapackage",
+        "filename": "datapackage.json",
+    }
     assert_get_url_to_datafile(first_datafile)
     second_datafile = {
-            "source": "tabular_data_packages",
-            "version": "1162b173",
-            "path": "camaras_trampa_gatos_isla_guadalupe",
-            "type": "json",
-            "filename": "datapackage.json"
-        }
+        "source": "tabular_data_packages",
+        "version": "1162b173",
+        "path": "camaras_trampa_gatos_isla_guadalupe",
+        "type": "json",
+        "filename": "datapackage.json",
+    }
     assert_get_url_to_datafile(second_datafile)
-
 
 
 def test_init():
