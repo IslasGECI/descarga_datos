@@ -25,7 +25,7 @@ clean:
 	rm --recursive --force ${repo}.egg-info
 	rm --recursive --force ${repo}/__pycache__
 	rm --recursive --force test/__pycache__
-	rm --recursive --force analyses.json
+	rm --force analyses.json
 
 format:
 	black --line-length 100 ${repo}
