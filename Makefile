@@ -22,10 +22,13 @@ check:
 
 clean:
 	rm --force .mutmut-cache
+	rm --force .coverage
+	rm --force analyses.json
 	rm --recursive --force ${repo}.egg-info
 	rm --recursive --force ${repo}/__pycache__
 	rm --recursive --force ${repo}/**/__pycache__
 	rm --recursive --force test/__pycache__
+	rm --recursive --force .pytest_cache
 	rm --recursive --force results
 
 format:
