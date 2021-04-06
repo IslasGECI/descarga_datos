@@ -57,8 +57,8 @@ def test_analysis_name():
 
 
 def test_is_dependent_on_datafile():
-    assert analisis.is_dependent_on_datafile("roedores_capturarecaptura_cedros.csv")
-    assert not analisis.is_dependent_on_datafile("rodores_capturarecaptura_cedros.csv")
+    assert analisis.is_dependent_on_datafile("roedores_capturarecaptura_cedros", "roedores_capturarecaptura_cedros.csv")
+    assert not analisis.is_dependent_on_datafile("roedores_capturarecaptura_cedros", "rodores_capturarecaptura_cedros.csv")
 
 
 def assert_get_url_to_datafile(dictionary):
