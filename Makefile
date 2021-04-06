@@ -24,8 +24,9 @@ clean:
 	rm --force .mutmut-cache
 	rm --recursive --force ${repo}.egg-info
 	rm --recursive --force ${repo}/__pycache__
+	rm --recursive --force ${repo}/**/__pycache__
 	rm --recursive --force test/__pycache__
-	rm --force analyses.json
+	rm --recursive --force results
 
 format:
 	black --line-length 100 ${repo}
