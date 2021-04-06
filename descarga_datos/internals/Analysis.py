@@ -109,11 +109,11 @@ class Analysis:
         True
         """
         for archivo_datos in self._data:
-            if archivo_datos.filename == filename:
+            if archivo_datos.path == path and archivo_datos.filename == filename:
                 return True
         return False
 
-    def get_url_to_datafile(self, filename: str):
+    def get_url_to_datafile(self, path: str, filename: str):
         """
         Regresa el url de donde se puede descargar el archivo desde Bitbucket
 
@@ -138,6 +138,6 @@ class Analysis:
         >>> analisis.get_url_to_datafile('archivo_ejemplo.csv')
         """
         for archivo_datos in self._data:
-            if archivo_datos.filename == filename:
+            if archivo_datos.path == path and archivo_datos.filename == filename:
                 return archivo_datos.get_url_to_file()
         return None
