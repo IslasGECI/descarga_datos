@@ -41,5 +41,8 @@ mutants:
 	mutmut run --paths-to-mutate ${repo}
 
 tests: install
+	pytest --verbose
+
+coverage: install
 	pytest --cov=${repo} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}
