@@ -116,9 +116,9 @@ def test_init():
     )
     obtained_description = analisis._description
     assert obtained_description == expected_description
-    obtained_docker_image = analisis._docker_parent_image
-    expected_docker_image = "islasgeci/extension:d25d"
-    assert obtained_docker_image == expected_docker_image
+    obtained_image_tag = analisis._image_tag
+    expected_image_tag = "d52d"
+    assert obtained_image_tag == expected_image_tag
     assert analisis._report == ""
     assert analisis._results == []
     assert analisis._scripts == []
