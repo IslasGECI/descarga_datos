@@ -6,6 +6,7 @@ TEXTO_ANALYSIS = """[{
     "name": "Cantidad de individuos por transecto con captura y recaptura",
     "description": "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros",
     "image_tag": "d52d",
+    "docker_parent_image": "islasgeci/extension:d25d",
     "report": "",
     "results": [
     ],
@@ -119,6 +120,9 @@ def test_init():
     obtained_image_tag = analisis._image_tag
     expected_image_tag = "d52d"
     assert obtained_image_tag == expected_image_tag
+    obtained_docker_image = analisis._docker_parent_image
+    expected_docker_image = "islasgeci/extension:d25d"
+    assert obtained_docker_image == expected_docker_image
     assert analisis._report == ""
     assert analisis._results == []
     assert analisis._scripts == []
