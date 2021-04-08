@@ -6,7 +6,6 @@ TEXTO_ANALYSIS = """[{
     "name": "Cantidad de individuos por transecto con captura y recaptura",
     "description": "Cantidad de individuos por transecto con captura y recaptura en Isla Cedros",
     "image_tag": "d52d",
-    "docker_parent_image": "islasgeci/extension:d25d",
     "report": "",
     "results": [
     ],
