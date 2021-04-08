@@ -6,7 +6,7 @@ import sys
 
 TEXTO_ANALYSIS = """[
     {
-        "docker_parent_image": "islasgeci/jupyter:5b83",
+        "image_tag": "d52d",
         "name": "Densidad de madrigueras de mérgulo a partir de busquedas exhaustivas",
         "description": "Mapas de densidad de madrigueras de mérgulo en Isla Guadalupe durante las temporadas 2014-2018.",
         "report": "mapa_densidad_censo.pdf",
@@ -28,7 +28,7 @@ TEXTO_ANALYSIS = """[
         "requirements": []
     },
     {
-        "docker_parent_image": "islasgeci/jupyter:5b83",
+        "image_tag": "d52d",
         "name": "Resumen de esfuerzo de trampeo del periodo de abril a octubre del 2020",
         "description": "Muestra el resumen de esfuerzo total de abril a octubre del 2020",
         "report": "resumen_esfuerzo_erradicacion_gatos.pdf",
