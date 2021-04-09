@@ -13,8 +13,8 @@ class Analysis:
     `description : str`
         Descripción del análisis
 
-    `docker_parent_image : str`
-        Nombre de la imágen de docker en la que se genera el resultado
+    `image_tag : str`
+        Etiqueta de la imágen de Docker en la que se genera el resultado
 
     `report : str`
         Nombre del archivo del reporte donde se presentan los resultados
@@ -60,16 +60,18 @@ class Analysis:
     def __init__(
         self,
         name: str,
-        description: str,
-        docker_parent_image: str,
-        report: str,
-        results: list,
-        scripts: list,
-        data: list,
-        requirements: list,
+        description: str = None,
+        image_tag: str = None,
+        docker_parent_image: str = None,
+        report: str = None,
+        results: list = None,
+        scripts: list = None,
+        data: list = None,
+        requirements: list = None,
     ):
         self._name = name
         self._description = description
+        self._image_tag = image_tag
         self._docker_parent_image = docker_parent_image
         self._report = report
         self._results = results
