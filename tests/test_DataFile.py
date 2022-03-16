@@ -40,9 +40,9 @@ def test_init():
 
 
 def test_get_url():
-    obtained_url = datafile.get_url_to_file()
+    obtained_url = datafile.get_url_to_file("bb_username", "bb_password")
     expected_url = (
-        "https://api.bitbucket.org/2.0/repositories/IslasGECI/tabular_data_packages/src/"
+        "https://bb_username:bb_password@api.bitbucket.org/2.0/repositories/IslasGECI/tabular_data_packages/src/"
         + analisis["version"]
         + "/roedores_capturarecaptura_cedros/"
         + analisis["filename"]
