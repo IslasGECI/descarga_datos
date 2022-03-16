@@ -40,11 +40,11 @@ def test_init():
 
 
 def test_get_url():
-    obtained_url = datafile.get_url_to_file("bb_username", "bb_password")
+    obtained_url = datafile.get_url_to_file()
     expected_url = (
-        "https://bb_username:bb_password@api.bitbucket.org/2.0/repositories/IslasGECI/tabular_data_packages/src/"
+        "@api.bitbucket.org/2.0/repositories/IslasGECI/tabular_data_packages/src/"
         + analisis["version"]
         + "/roedores_capturarecaptura_cedros/"
         + analisis["filename"]
     )
-    assert expected_url == obtained_url
+    assert expected_url in obtained_url
