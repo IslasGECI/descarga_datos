@@ -93,5 +93,5 @@ class DataFile:
         >>> archivo.get_url_to_file(user="usuario")
         'https://bitbucket.org/usuario/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
         """
-        base_url = "https://bitbucket.org/"
-        return base_url + f"{user}/{self._source}/raw/{self._version}/{self._path}/{self._filename}"
+        base_url = "https://api.bitbucket.org/2.0/repositories/"
+        return base_url + f"{user}/{self._source}/src/{self._version}/{self._path}/{self._filename}"
