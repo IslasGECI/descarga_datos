@@ -42,9 +42,9 @@ def test_init():
 def test_get_url():
     obtained_url = datafile.get_url_to_file()
     expected_url = (
-        "https://bitbucket.org/IslasGECI/tabular_data_packages/raw/"
+        "@api.bitbucket.org/2.0/repositories/IslasGECI/tabular_data_packages/src/"
         + analisis["version"]
         + "/roedores_capturarecaptura_cedros/"
         + analisis["filename"]
     )
-    assert expected_url == obtained_url
+    assert expected_url in obtained_url
