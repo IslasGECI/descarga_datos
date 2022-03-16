@@ -12,7 +12,7 @@ define lint
         ${1}
 endef
 
-.PHONY: all clean format install linter mutants tests
+.PHONY: all clean format init linter mutants setup tests
 
 check:
 	black --check --line-length 100 ${repo}
@@ -35,19 +35,21 @@ format:
 	black --line-length 100 ${repo}
 	black --line-length 100 tests
 
-install:
+init: setup tests
+
+setup: clean
 	pip install --editable .
 
 linter:
 	$(call lint, ${repo})
 	$(call lint, tests)
 
-mutants: install
+mutants: setup
 	mutmut run --paths-to-mutate ${repo}
 
-tests: install
+tests:
 	pytest --verbose
 
-coverage: install
+coverage: setup
 	pytest --cov=${repo} --cov-report=xml --verbose && \
 	codecov --token=${codecov_token}

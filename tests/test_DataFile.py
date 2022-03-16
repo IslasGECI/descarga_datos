@@ -3,10 +3,10 @@ import json
 from descarga_datos import DataFile
 
 TEXTO_ANALYSIS = """{
-    "source": "datapackage",
+    "source": "tabular_data_packages",
     "path": "roedores_capturarecaptura_cedros",
     "filename": "roedores_capturarecaptura_cedros.csv",
-    "version": "d2ca5a04850b",
+    "version": "e511b813667ef3063c47b47c954d3b8c202ef709",
     "type": "datapackage"
 }"""
 
@@ -37,3 +37,14 @@ def test_init():
     obtained_type = datafile._type
     expected_type = analisis["type"]
     assert obtained_type == expected_type
+
+
+def test_get_url():
+    obtained_url = datafile.get_url_to_file()
+    expected_url = (
+        "@api.bitbucket.org/2.0/repositories/IslasGECI/tabular_data_packages/src/"
+        + analisis["version"]
+        + "/roedores_capturarecaptura_cedros/"
+        + analisis["filename"]
+    )
+    assert expected_url in obtained_url

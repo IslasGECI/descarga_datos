@@ -1,8 +1,8 @@
-import urllib.request
 import os
+import requests
 
 
-def download_file_from_repo(url: str, destionation_filename: str, user: str, password: str):
+def download_file_from_repo(url: str, filename: str):
     """
     Función que permite descargar archivos desde repositorios de bitbucket
 
@@ -32,9 +32,8 @@ def download_file_from_repo(url: str, destionation_filename: str, user: str, pas
     >>> url = 'https://bitbucket.org/usuario_prueba/repo_datos/raw/9fd54/datos.xlsx'
     >>> download_file(url, 'inst/extdata/datos.xlsx', usuario, contrasenia)
     """
-    manejador_autenticacion = urllib.request.HTTPPasswordMgrWithDefaultRealm()
-    manejador_autenticacion.add_password(None, uri=url, user=user, passwd=password)
-    handler = urllib.request.HTTPBasicAuthHandler(manejador_autenticacion)
-    conexion = urllib.request.build_opener(handler)
-    urllib.request.install_opener(conexion)
-    urllib.request.urlretrieve(url, os.path.join(destionation_filename, os.path.split(url)[1]))
+    directory = os.path.split(url)[1]
+    path = os.path.join(filename, directory)
+    response = requests.request("GET", url)
+    with open(path, "w") as f:
+        f.write(response.text)
