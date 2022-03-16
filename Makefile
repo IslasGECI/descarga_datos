@@ -35,6 +35,8 @@ format:
 	black --line-length 100 ${repo}
 	black --line-length 100 tests
 
+init: install tests
+
 install:
 	pip install --editable .
 
@@ -45,7 +47,7 @@ linter:
 mutants: install
 	mutmut run --paths-to-mutate ${repo}
 
-tests: install
+tests:
 	pytest --verbose
 
 coverage: install
