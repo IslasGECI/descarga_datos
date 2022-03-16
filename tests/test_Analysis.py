@@ -68,7 +68,7 @@ def test_is_dependent_on_datafile():
 
 def assert_get_url_to_datafile(dictionary):
     expected_url = (
-        f"https://bitbucket.org/IslasGECI/{dictionary['source']}/raw/{dictionary['version']}/"
+        f"https://api.bitbucket.org/2.0/repositories/IslasGECI/{dictionary['source']}/src/{dictionary['version']}/"
         + f"{dictionary['path']}/{dictionary['filename']}"
     )
     obtained_url = analisis.get_url_to_datafile(dictionary["path"], dictionary["filename"])
