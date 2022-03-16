@@ -35,9 +35,9 @@ format:
 	black --line-length 100 ${repo}
 	black --line-length 100 tests
 
-init: install tests
+init: setup tests
 
-install:
+setup: clean
 	pip install --editable .
 
 linter:
