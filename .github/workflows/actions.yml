@@ -1,6 +1,13 @@
 name: Conservación de Islas
-on: [push, pull_request]
-
+on:
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - main
 jobs:
   actions:
     runs-on: ubuntu-latest
