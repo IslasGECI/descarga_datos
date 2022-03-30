@@ -35,7 +35,7 @@ format:
 	black --line-length 100 ${repo}
 	black --line-length 100 tests
 
-init: setup tests tests_version
+init: setup tests
 
 setup: clean
 	pip install --editable .
