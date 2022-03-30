@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-obtained_version="$(git branch --show-current | cut -d 'v' -f 2)"
+obtained_version="$(git branch --show-current | cut --delimiter='v' --fields=2)"
 expected_version="$(grep version setup.py | cut -d '"' -f 2)"
 if [ "${obtained_version}" = "${expected_version}" ]; then
   echo "."
