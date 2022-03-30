@@ -35,7 +35,7 @@ format:
 	black --line-length 100 ${repo}
 	black --line-length 100 tests
 
-init: setup tests
+init: setup tests tests_version
 
 setup: clean
 	pip install --editable .
@@ -49,6 +49,9 @@ mutants: setup
 
 tests:
 	pytest --verbose
+
+tests_version:
+	./tests/test_version.sh
 
 coverage: setup
 	pytest --cov=${repo} --cov-report=xml --verbose && \
