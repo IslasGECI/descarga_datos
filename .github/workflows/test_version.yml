@@ -1,0 +1,14 @@
+name: Verify version number
+on:
+  push:
+    branches:
+      - 'feature/**'
+      - 'release/**'
+jobs:
+  actions:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copia repositorio
+      uses: actions/checkout@v2
+    - name: Verify version
+      run: make tests_version
