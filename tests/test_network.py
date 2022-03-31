@@ -23,7 +23,7 @@ def test_download_file_from_repo():
     assert_can_not_download_a_file(file_name, destination_folder)
 
 
-def assert_can_download_a_file(file_name,destination_folder):
+def get_file_size(file_name,destination_folder):
     archivo = descarga_datos.internals.DataFile(
         "archivos_binarios",
         "shp/clarion_vegetal_zones",
@@ -33,19 +33,14 @@ def assert_can_download_a_file(file_name,destination_folder):
     )
     url = archivo.get_url_to_file()
     download_file_from_repo(url, destination_folder)
-    file_size = os.path.getsize(f"{destination_folder}/{file_name}")
+    return os.path.getsize(f"{destination_folder}/{file_name}")
+
+
+def assert_can_download_a_file(file_name,destination_folder):
+    file_size = get_file_size(file_name,destination_folder)
     assert file_size > 200
 
 
 def assert_can_not_download_a_file(file_name,destination_folder):
-    archivo = descarga_datos.internals.DataFile(
-        "archivos_binarios",
-        "shp/clarion_vegetal_zones",
-        file_name,
-        "aeafdde",
-        "zip",
-    )
-    url = archivo.get_url_to_file()
-    download_file_from_repo(url, destination_folder)
-    file_size = os.path.getsize(f"{destination_folder}/{file_name}")
+    file_size = get_file_size(file_name,destination_folder)
     assert file_size <= 200
