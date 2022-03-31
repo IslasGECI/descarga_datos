@@ -7,40 +7,55 @@ if not os.path.exists("./results"):
 
 
 def test_download_file_from_repo():
-    archivo = descarga_datos.internals.DataFile(
-        "tabular_data_packages",
-        "esfuerzos_capturas_gatos_socorro",
-        "captura_gatos_socorro.csv",
-        "a3e8",
-        "csv",
-    )
-    url = archivo.get_url_to_file()
-    destination_folder = "./results"
-    download_file_from_repo(url, destination_folder)
-    file_name = "clarion_vegetal_types.zip"
-    assert_can_download_a_file(file_name, destination_folder)
-    file_name = "XXclarion_vegetal_types.zipXX"
-    assert_can_not_download_a_file(file_name, destination_folder)
+
+    filename = "captura_gatos_socorro.csv"
+    file = set_tdp_file(filename)
+    assert_can_download_a_file(file)
+
+    filename = "clarion_vegetal_types.zip"
+    file = set_binary_file(filename)
+    assert_can_download_a_file(file)
+
+    filename = "XXclarion_vegetal_types.zipXX"
+    file = set_binary_file(filename)
+    assert_can_not_download_a_file(file)
 
 
-def get_file_size(file_name,destination_folder):
-    archivo = descarga_datos.internals.DataFile(
+def set_binary_file(filename):
+    return descarga_datos.internals.DataFile(
         "archivos_binarios",
         "shp/clarion_vegetal_zones",
-        file_name,
+        filename,
         "aeafdde",
         "zip",
     )
-    url = archivo.get_url_to_file()
+
+
+def set_tdp_file(filename):
+    return descarga_datos.internals.DataFile(
+        "tabular_data_packages",
+        "esfuerzos_capturas_gatos_socorro",
+        filename,
+        "a3e8",
+        "csv",
+    )
+
+
+def get_file_size(file):
+    url = file.get_url_to_file()
+    destination_folder = "./results"
     download_file_from_repo(url, destination_folder)
-    return os.path.getsize(f"{destination_folder}/{file_name}")
+    return os.path.getsize(f"{destination_folder}/{file.filename}")
 
 
-def assert_can_download_a_file(file_name,destination_folder):
-    file_size = get_file_size(file_name,destination_folder)
-    assert file_size > 200
+FILE_SIZE_CUTOFF = 200
 
 
-def assert_can_not_download_a_file(file_name,destination_folder):
-    file_size = get_file_size(file_name,destination_folder)
-    assert file_size <= 200
+def assert_can_download_a_file(file):
+    file_size = get_file_size(file)
+    assert file_size > FILE_SIZE_CUTOFF
+
+
+def assert_can_not_download_a_file(file):
+    file_size = get_file_size(file)
+    assert file_size <= FILE_SIZE_CUTOFF
