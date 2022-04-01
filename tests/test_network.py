@@ -23,11 +23,11 @@ def test_download_file_from_repo():
 
 
 def set_file(repo, filename):
-    selector = {
+    file_setter = {
         "archivos_binarios": set_binary_file,
         "tabular_data_packages": set_tdp_file,
     }
-    return selector[repo](filename)
+    return file_setter[repo](filename)
 
 
 def set_binary_file(filename):
