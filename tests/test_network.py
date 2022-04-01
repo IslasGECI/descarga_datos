@@ -61,7 +61,6 @@ def remove_file(path):
 
 def get_file_size(file):
     getter_size_file = Getter_File_Size(file)
-    getter_size_file.ensure_file_do_not_exist()
     file_size = getter_size_file.get_size()
     return file_size
 
@@ -72,15 +71,16 @@ class Getter_File_Size:
         self.file = file
         self.path = None
 
-    def ensure_file_do_not_exist(self):
-        self.path = f"{self.destination_folder}/{self.file.filename}"
-        remove_file(self.path)
-
     def get_size(self):
+        self._ensure_file_do_not_exist()
         self._download_the_file()
         file_size = os.path.getsize(self.path)
         remove_file(self.path)
         return file_size
+
+    def _ensure_file_do_not_exist(self):
+        self.path = f"{self.destination_folder}/{self.file.filename}"
+        remove_file(self.path)
     
     def _download_the_file(self):
         url = self.file.get_url_to_file()
