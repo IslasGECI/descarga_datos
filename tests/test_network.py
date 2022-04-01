@@ -41,11 +41,20 @@ def set_tdp_file(filename):
     )
 
 
+def remove_file(path):
+    if os.path.exists(path):
+        os.remove(path)
+
+
 def get_file_size(file):
-    url = file.get_url_to_file()
     destination_folder = "./results"
+    path = f"{destination_folder}/{file.filename}"
+    remove_file(path)
+    url = file.get_url_to_file()
     download_file_from_repo(url, destination_folder)
-    return os.path.getsize(f"{destination_folder}/{file.filename}")
+    file_size = os.path.getsize(path)
+    remove_file(path)
+    return file_size
 
 
 FILE_SIZE_CUTOFF = 200
