@@ -74,9 +74,8 @@ class Getter_File_Size:
     def get_size(self):
         self._ensure_file_do_not_exist()
         self._download_the_file()
-        file_size = os.path.getsize(self.path)
-        remove_file(self.path)
-        return file_size
+        self._calculate_size()
+        return self.file_size
 
     def _ensure_file_do_not_exist(self):
         self.path = f"{self.destination_folder}/{self.file.filename}"
@@ -85,3 +84,8 @@ class Getter_File_Size:
     def _download_the_file(self):
         url = self.file.get_url_to_file()
         download_file_from_repo(url, self.destination_folder)
+        
+    def _calculate_size(self):
+        self.file_size = os.path.getsize(self.path)
+        remove_file(self.path)
+
