@@ -35,5 +35,5 @@ def download_file_from_repo(url: str, filename: str):
     directory = os.path.split(url)[1]
     path = os.path.join(filename, directory)
     response = requests.request("GET", url)
-    with open(path, "w") as f:
-        f.write(response.text)
+    with open(path, "wb") as f:
+        f.write(response.content)
