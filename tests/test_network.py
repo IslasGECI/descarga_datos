@@ -54,11 +54,6 @@ def assert_can_download_a_file(file, is_a_file):
     assert is_big_enough == is_a_file
 
 
-def remove_file(path):
-    if os.path.exists(path):
-        os.remove(path)
-
-
 def get_file_size(file):
     getter_size_file = Getter_File_Size(file)
     file_size = getter_size_file.get_size()
@@ -79,7 +74,7 @@ class Getter_File_Size:
 
     def _ensure_file_do_not_exist(self):
         self.path = f"{self.destination_folder}/{self.file.filename}"
-        remove_file(self.path)
+        self._remove_file()
     
     def _download_the_file(self):
         url = self.file.get_url_to_file()
@@ -87,5 +82,9 @@ class Getter_File_Size:
         
     def _calculate_size(self):
         self.file_size = os.path.getsize(self.path)
-        remove_file(self.path)
+        self._remove_file()
+
+    def _remove_file(self):
+        if os.path.exists(self.path):
+            os.remove(self.path)
 
