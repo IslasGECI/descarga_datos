@@ -7,26 +7,28 @@ if not os.path.exists("./results"):
 
 
 def test_download_file_from_repo():
-
+    repo = "tabular_data_packages"
     filename = "captura_gatos_socorro.csv"
-    file = set_file("tabular_data_packages",filename)
+    file = set_file(repo, filename)
     assert_can_download_a_file(file)
 
+    repo = "archivos_binarios"
     filename = "clarion_vegetal_types.zip"
-    file = set_file("archivos_binarios",filename)
+    file = set_file(repo, filename)
     assert_can_download_a_file(file)
 
     filename = "XXclarion_vegetal_types.zipXX"
-    file = set_file("archivos_binarios",filename)
+    file = set_file(repo, filename)
     assert_can_not_download_a_file(file)
 
 
-def set_file(repo,filename):
+def set_file(repo, filename):
     selector = {
-            "archivos_binarios": set_binary_file,
-            "tabular_data_packages": set_tdp_file,
-            }
+        "archivos_binarios": set_binary_file,
+        "tabular_data_packages": set_tdp_file,
+    }
     return selector[repo](filename)
+
 
 def set_binary_file(filename):
     return descarga_datos.internals.DataFile(
