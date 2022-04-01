@@ -1,25 +1,22 @@
 import descarga_datos
 import os
 from descarga_datos import download_file_from_repo
+import pytest
 
 if not os.path.exists("./results"):
     os.mkdir("./results")
 
+test_data = [
+    ("tabular_data_packages", "captura_gatos_socorro.csv", True),
+    ("archivos_binarios", "clarion_vegetal_types.zip", True),
+    ("archivos_binarios", "XXclarion_vegetal_types.zipXX", False),
+]
 
-def test_download_file_from_repo():
-    repo = "tabular_data_packages"
-    filename = "captura_gatos_socorro.csv"
-    file = set_file(repo, filename)
-    assert_can_download_a_file(file)
 
-    repo = "archivos_binarios"
-    filename = "clarion_vegetal_types.zip"
+@pytest.mark.parametrize("repo, filename, is_a_file", test_data, ids=["CSV", "ZIP", "Not a file"])
+def test_download_file_from_repo(repo, filename, is_a_file):
     file = set_file(repo, filename)
-    assert_can_download_a_file(file)
-
-    filename = "XXclarion_vegetal_types.zipXX"
-    file = set_file(repo, filename)
-    assert_can_not_download_a_file(file)
+    assert_can_download_a_file(file, is_a_file)
 
 
 def set_file(repo, filename):
@@ -66,14 +63,8 @@ def get_file_size(file):
     return file_size
 
 
-FILE_SIZE_CUTOFF = 200
-
-
-def assert_can_download_a_file(file):
+def assert_can_download_a_file(file, is_a_file):
+    FILE_SIZE_CUTOFF = 200
     file_size = get_file_size(file)
-    assert file_size > FILE_SIZE_CUTOFF
-
-
-def assert_can_not_download_a_file(file):
-    file_size = get_file_size(file)
-    assert file_size <= FILE_SIZE_CUTOFF
+    is_big_enough = file_size > FILE_SIZE_CUTOFF
+    assert is_big_enough == is_a_file
