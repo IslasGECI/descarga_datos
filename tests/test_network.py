@@ -47,6 +47,13 @@ def set_tdp_file(filename):
     )
 
 
+def assert_can_download_a_file(file, is_a_file):
+    FILE_SIZE_CUTOFF = 200
+    file_size = get_file_size(file)
+    is_big_enough = file_size > FILE_SIZE_CUTOFF
+    assert is_big_enough == is_a_file
+
+
 def remove_file(path):
     if os.path.exists(path):
         os.remove(path)
@@ -61,10 +68,3 @@ def get_file_size(file):
     file_size = os.path.getsize(path)
     remove_file(path)
     return file_size
-
-
-def assert_can_download_a_file(file, is_a_file):
-    FILE_SIZE_CUTOFF = 200
-    file_size = get_file_size(file)
-    is_big_enough = file_size > FILE_SIZE_CUTOFF
-    assert is_big_enough == is_a_file
