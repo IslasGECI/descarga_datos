@@ -59,6 +59,9 @@ class Analysis:
 
     def __init__(
         self,
+        name: str,
+        description: str = None,
+        image_tag: str = None,
         docker_parent_image: str = None,
         report: str = None,
         results: list = None,
@@ -67,9 +70,9 @@ class Analysis:
         requirements: list = None,
         **kwargs,
     ):
-        self._name = kwargs["name"]
-        self._description = kwargs["description"]
-        self._image_tag = kwargs["image_tag"]
+        self._name = name
+        self._description = description
+        self._image_tag = image_tag
         self._docker_parent_image = docker_parent_image
         self._report = report
         self._results = results
