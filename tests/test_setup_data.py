@@ -14,7 +14,4 @@ def test_filter_date_by_condition():
     obtained_filtered_data_length = len(obtained_filtered_data)
     assert obtained_filtered_data_length == expected_filtered_rows
     obtained_columns = obtained_filtered_data.columns
-    expected_columns = data_to_filter.columns
-    print(expected_columns)
-    print(obtained_columns)
     assert "year" not in obtained_columns
