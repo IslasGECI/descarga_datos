@@ -1,6 +1,7 @@
-from typer.testing import CliRunner
+from descarga_datos.app import app
 
-from descarga_datos.setup_data import app
+import os
+from typer.testing import CliRunner
 
 runner = CliRunner()
 
