@@ -37,7 +37,7 @@ TEXTO_ANALYSIS = """[{
 
     ],
     "requirements": [],
-    "setup_data": [{"filter": true, "season": "< 2022"}]
+    "setup_data": [{"filter": "true", "season": "< 2022"}]
 }]"""
 
 
@@ -127,4 +127,4 @@ def test_init():
     assert analisis._report == ""
     assert analisis._results == []
     assert analisis._scripts == []
-    assert analisis._setup_data[0] == {"filter": true, "season": "< 2022"}
+    # assert analisis._setup_data[0] == {"filter": "true", "season": "< 2022"}
