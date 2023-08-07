@@ -1,0 +1,24 @@
+Fecha,Hora,Isla,Sitio_o_colonia,Temporada,Especie,ID_madriguera,Nota_madriguera,Huevo,Huevo_roto,Huevo_abandonado,Huevo_eclosionado,Pollo,Pollo_muerto,Adulto,Adulto_incubando,Adulto_muerto,Condicion_de_madriguera,Latitud,Longitud,Coordenada_Este,Coordenada_Norte,Zona_UTM,Altitud,Observaciones
+18/Dic/2014,14:21:00,Guadalupe,Punta Sur,2014-2015,Phoebastria immutabilis,N1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,374074,3195794,11R,76,NA
+18/Dic/2014,17:24:10,Guadalupe,Punta Sur,2014-2015,Phoebastria immutabilis,N151,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,374597,3196117,11R,94,NA
+21/Dic/2014,15:41:33,Guadalupe,Colinas Negras,2014-2015,Phoebastria immutabilis,N179,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,375007,3198823,11R,221,NA
+21/Dic/2014,17:10:51,Guadalupe,Punta Sur,2014-2015,Synthliboramphus scrippsi,N92,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,374067,3195821,11R,63,NA
+05/Abr/2015,00:00:00,Todos Santos,NA,NA,Synthliboramphus scrippsi,MERG 1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,520111,3517503,11R,NA,NA
+05/Feb/2015,10:31:15,Guadalupe,Morro Prieto,2014-2015,Phoebastria immutabilis,NM113,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,374333,3198336,11R,20,NA
+21/Ene/2016,12:51:05,Guadalupe,Zapato,2015-2016,Phoebastria immutabilis,NZ340,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,375035,3191880,11R,181,NA
+12/Feb/2016,18:33:41,Guadalupe,Morro Prieto,2015-2016,Phoebastria immutabilis,NM80,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,374363,3198352,11R,34,NA
+07/May/2016,12:00:00,Partida,NA,NA,Larus livens,LA1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,300591,3197347,12R,NA,NA
+27/Abr/2020,16:45:15,Guadalupe,Punta Sur,2020,Synthliboramphus hypoleucus,M076,Ave incubando,NA,0,0,0,0,0,0,NA,0,ocupada,NA,NA,373751,3195723,11R,15,NA
+15/May/2020,14:29:42,Guadalupe,Punta Sur,2020,Synthliboramphus hypoleucus,M120,Huevo(s) eclosionado(s),2,0,0,2,0,0,0,0,0,ocupada,NA,NA,374224,3196079,11R,41,NA
+28/Dic/2020,12:20:46,Guadalupe,Punta Sur,2020-2021,Phoebastria immutabilis,G162,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,374261,3195794,11R,73,NA
+30/Dic/2020,10:32:00,Guadalupe,Colinas Negras,2020-2021,Phoebastria immutabilis,G257,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,375365,3197825,11R,190,NA
+22/May/2023,11:42:45,Guadalupe,Punta Sur,2023,Synthliboramphus hypoleucus,M350,Huevo eclosionado,NA,NA,NA,1,NA,NA,NA,NA,NA,ocupada,NA,NA,374206,3195684,11R,25,Debajo de rocas grandes
+29/Mar/2021,15:44:23,Guadalupe,Punta Sur,2021,Synthliboramphus hypoleucus,M236,Ave incubando,NA,NA,NA,NA,NA,NA,NA,1,NA,ocupada,NA,NA,373902,3195966,11R,29,NA
+22/May/2021,11:02:36,Guadalupe,Punta Sur,2021,Synthliboramphus hypoleucus,M192,Huevo eclosionado,NA,NA,NA,2,NA,NA,NA,NA,NA,ocupada,NA,NA,374211,3195691,11R,33,NA
+22/May/2021,11:08:59,Guadalupe,Punta Sur,2021,Synthliboramphus hypoleucus,M349,Huevo eclosionado,NA,NA,NA,1,NA,NA,NA,NA,NA,ocupada,NA,NA,374227,3195687,11R,33,Muy profunda pegada a la pared
+22/May/2021,11:42:45,Guadalupe,Punta Sur,2021,Synthliboramphus hypoleucus,M350,Huevo eclosionado,NA,NA,NA,1,NA,NA,NA,NA,NA,ocupada,NA,NA,374206,3195684,11R,25,Debajo de rocas grandes
+22/May/2021,12:08:28,Guadalupe,Punta Sur,2021,Synthliboramphus hypoleucus,M351,Huevo eclosionado,NA,NA,NA,1,NA,NA,NA,NA,NA,ocupada,NA,NA,374202,3195672,11R,17,En grieta
+04/Feb/2022,10:54:57,Guadalupe,Zapato,2021-2022,Phoebastria immutabilis,Z557,Adulto empollando,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,375060,3191911,11R,182,NA
+14/Feb/2022,14:20:48,Guadalupe,Zapato,2021-2022,Phoebastria immutabilis,Z691,Adulto empollando,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,375128,3191937,11R,173,NA
+27/Mar/2022,NA,Guadalupe,Zapato,2021-2022,Phoebastria immutabilis,Z692,Pollo solo,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+22/May/2023,11:42:45,Guadalupe,Punta Sur,2023,Synthliboramphus hypoleucus,M350,Huevo eclosionado,NA,NA,NA,1,NA,NA,NA,NA,NA,ocupada,NA,NA,374206,3195684,11R,25,Debajo de rocas grandes
