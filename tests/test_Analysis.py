@@ -36,7 +36,8 @@ TEXTO_ANALYSIS = """[{
         }
 
     ],
-    "requirements": []
+    "requirements": [],
+    "setup_data": [{"filter": true, "season": "< 2022"}]
 }]"""
 
 
