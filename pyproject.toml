@@ -9,7 +9,7 @@ classifiers = [ "License :: OSI Approved :: GNU General Public License v3 or lat
 description-file = "README.md"
 home-page = "https://github.com/IslasGECI/descarga_datos"
 module = "descarga_datos"
-requires = ["typer[all]", "typer-cli"]
+requires = ["pandas", "typer[all]", "typer-cli"]
 requires-python=">=3.8"
 
 [tool.flit.scripts]
