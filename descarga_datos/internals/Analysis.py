@@ -68,7 +68,7 @@ class Analysis:
         scripts: list = None,
         data: list = None,
         requirements: list = None,
-        **kwargs,
+        setup_data: list = None,
     ):
         self._name = name
         self._description = description
@@ -78,6 +78,7 @@ class Analysis:
         self._results = results
         self._scripts = scripts
         self._data = self._construct_datafile_array(data)
+        self._setup_data = setup_data
 
     def _construct_datafile_array(self, data):
         archivos_datos = []
