@@ -68,6 +68,7 @@ class Analysis:
         scripts: list = None,
         data: list = None,
         requirements: list = None,
+        **kwargs,
     ):
         self._name = name
         self._description = description
