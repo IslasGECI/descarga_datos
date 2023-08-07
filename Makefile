@@ -40,7 +40,9 @@ init: setup tests
 	git config --global user.name "Ciencia de Datos • GECI"
 	git config --global user.email "ciencia.datos@islas.org.mx"
 
-setup: clean
+setup: clean install
+
+install:
 	pip install --editable .
 
 linter:
