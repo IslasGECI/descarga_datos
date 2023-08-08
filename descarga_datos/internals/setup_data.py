@@ -29,6 +29,8 @@ def find_report(target_report, analyses_list):
         for report_content in analyses_list
         if report_content["report"] == target_report
     ]
+    if len(target_report_content) == 0:
+        raise ValueError(f"There is not report {target_report}")
     return target_report_content[0]
 
 

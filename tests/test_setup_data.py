@@ -7,6 +7,7 @@ from descarga_datos import (
 )
 
 import pandas as pd
+import pytest
 
 
 conditional_year = "< 2021"
@@ -58,3 +59,7 @@ def tests_find_report():
     target_report = "densidad_kernel_gls.pdf"
     obtained_content = find_report(target_report, analyses_list)
     assert "setup_data" not in obtained_content.keys()
+
+    target_report = "densidad_kernel_gls"
+    with pytest.raises(ValueError):
+        find_report(target_report, analyses_list)
