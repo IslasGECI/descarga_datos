@@ -19,7 +19,7 @@ def test_setup_cli():
             "--file-data-name",
             data_path,
             "--report",
-            "tamanio_poblacional",
+            "tamano_poblacional.pdf",
             "--analysis",
             "tests/data/analyses_tamanio.json",
         ],

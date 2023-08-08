@@ -3,7 +3,6 @@ import json
 
 def setup_data_by_report(data_to_filter, target_report, analyses_list):
     report_content = find_report(target_report, analyses_list)
-    print(report_content)
     filter_condition = find_filter_condition(report_content)
     return filter_date_by_condition(data_to_filter, filter_condition)
 
