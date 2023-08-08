@@ -8,12 +8,9 @@ runner = CliRunner()
 
 
 def test_setup_cli():
-    file_to_download = "nidos_busqueda_aves_marinas.csv"
-    destination_folder = "./results"
-    tdp_path = "nidos_busqueda_aves_marinas"
-    os.system(f"descarga_datos {file_to_download} {destination_folder} {tdp_path}")
+    data_path = "results/nidos_busqueda_aves_marinas_for_app.csv"
+    os.system(f"cp tests/data/nidos_busqueda_aves_marinas.csv {data_path}")
 
-    data_path = destination_folder + "/" + file_to_download
     original_data = pd.read_csv(data_path)
 
     result = runner.invoke(
@@ -30,3 +27,4 @@ def test_setup_cli():
     assert result.exit_code == 0
     filtered_data = pd.read_csv(data_path)
     assert len(filtered_data) < len(original_data)
+    os.remove(data_path)
