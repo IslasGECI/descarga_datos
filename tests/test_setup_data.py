@@ -1,6 +1,6 @@
 from descarga_datos import (
     filter_date_by_condition,
-    find_report,
+    extract_report_content,
     read_json,
     find_filter_condition,
     setup_data_by_report,
@@ -53,13 +53,13 @@ def tests_extract_filter_condition():
 
 def tests_find_report():
     target_report = "tamano_poblacional.pdf"
-    obtained_content = find_report(target_report, analyses_list)
+    obtained_content = extract_report_content(target_report, analyses_list)
     assert "setup_data" in obtained_content.keys()
 
     target_report = "densidad_kernel_gls.pdf"
-    obtained_content = find_report(target_report, analyses_list)
+    obtained_content = extract_report_content(target_report, analyses_list)
     assert "setup_data" not in obtained_content.keys()
 
     target_report = "densidad_kernel_gls"
     with pytest.raises(ValueError):
-        find_report(target_report, analyses_list)
+        extract_report_content(target_report, analyses_list)

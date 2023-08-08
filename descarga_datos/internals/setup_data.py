@@ -2,7 +2,7 @@ import json
 
 
 def setup_data_by_report(data_to_filter, target_report, analyses_list):
-    report_content = find_report(target_report, analyses_list)
+    report_content = extract_report_content(target_report, analyses_list)
     filter_condition = find_filter_condition(report_content)
     return filter_date_by_condition(data_to_filter, filter_condition)
 
@@ -23,7 +23,7 @@ def find_filter_condition(report_content):
     return report_content[setup_key][0]["season"]
 
 
-def find_report(target_report, analyses_list):
+def extract_report_content(target_report, analyses_list):
     target_report_content = [
         report_content
         for report_content in analyses_list
