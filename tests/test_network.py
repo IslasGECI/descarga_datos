@@ -55,12 +55,12 @@ def assert_can_download_a_file(file, is_a_file):
 
 
 def get_file_size(file):
-    getter_size_file = Getter_File_Size(file)
+    getter_size_file = File_Size_Getter(file)
     file_size = getter_size_file.get_size()
     return file_size
 
 
-class Getter_File_Size:
+class File_Size_Getter:
     def __init__(self, file):
         self.destination_folder = "./results"
         self.file = file
