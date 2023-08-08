@@ -1,9 +1,3 @@
-.*
 __pycache__/
-*.egg-info/
-*.egg-info/**
-*.pyc
-*.xml
-/*.csv
-/*.json
+.mutmut-cache
 analyses.json
