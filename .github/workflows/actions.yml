@@ -23,17 +23,17 @@ jobs:
         BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
         BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
       run: docker run islasgeci make init --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD}
+    - name: Evalua resistencia a mutaciones
+      env:
+        BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
+        BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
+      run: docker run islasgeci make mutants --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD}
     - name: Create/Update tag
       uses: rickstaa/action-create-tag@v1.5.4
       with:
          tag: "latest"
          message: "Latest release"
          force_push_tag: true
-    - name: Evalua resistencia a mutaciones
-      env:
-        BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
-        BITBUCKET_PASSWORD: ${{ secrets.BITBUCKET_PASSWORD }}
-      run: docker run islasgeci make mutants --env BITBUCKET_USERNAME=${BITBUCKET_USERNAME} --env BITBUCKET_PASSWORD=${BITBUCKET_PASSWORD}
     - name: Set up Python 3.9
       uses: actions/setup-python@master
       with:
