@@ -1,7 +1,6 @@
 from .internals import Analysis, read_json
 from .network import download_file_from_repo
 import sys
-import json
 
 
 def descarga_archivo(file_name, destination_folder, path):
