@@ -1,4 +1,4 @@
-from descarga_datos import filter_date_by_condition, find_report, read_json
+from descarga_datos import filter_date_by_condition, find_report, read_json, find_filter_condition
 
 import pandas as pd
 
@@ -15,6 +15,15 @@ def test_filter_date_by_condition():
     assert obtained_filtered_data_length == expected_filtered_rows
     obtained_columns = obtained_filtered_data.columns
     assert "year" not in obtained_columns
+
+
+def tests_extract_filter_condition():
+    filter_condition = "< 2019"
+    report_content = {
+        "report": "muestreo_aves.pdf",
+        "setup_data": [{"filter": "true", "season": filter_condition}],
+    }
+    find_filter_condition(report_content)
 
 
 def tests_find_report():
