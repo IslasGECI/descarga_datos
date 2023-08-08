@@ -1,6 +1,10 @@
 import json
 
 
+def setup_data_by_report(data_to_filter, target_report, analyses_list):
+    pass
+
+
 def filter_date_by_condition(data_to_filter, conditional_year):
     copy_data_to_filter = data_to_filter.copy()
     copy_data_to_filter["year"] = copy_data_to_filter["Fecha"].str.slice(7, 11).astype(int)
