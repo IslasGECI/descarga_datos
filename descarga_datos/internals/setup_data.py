@@ -8,6 +8,10 @@ def filter_date_by_condition(data_to_filter, conditional_year):
     return copy_data_to_filter.drop(columns=["year"])
 
 
+def find_filter_condition(report_content):
+    pass
+
+
 def find_report(target_report, analyses_list):
     target_report_content = [
         report_content
