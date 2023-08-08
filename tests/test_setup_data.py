@@ -21,3 +21,7 @@ def tests_find_report():
     target_report = "tamano_poblacional.pdf"
     obtained_content = find_report(target_report)
     assert "setup_data" in obtained_content.keys()
+
+    target_report = "densidad_kernel_gls.pdf"
+    obtained_content = find_report(target_report)
+    assert "setup_data" not in obtained_content.keys()
