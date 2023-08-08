@@ -29,3 +29,9 @@ def test_setup_cli():
     assert len(filtered_data) < len(original_data)
     assert (filtered_data.columns == original_data.columns).all()
     os.remove(data_path)
+
+    result = runner.invoke(
+        app,
+        ["--help"],
+    )
+    assert "XX" not in result.stdout
