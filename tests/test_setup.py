@@ -20,7 +20,7 @@ def test_setup_cli():
             "--report",
             "tamanio_poblacional",
             "--analysis",
-            "tests/data/analysis_tamanio.json",
+            "tests/data/analysis_tamaño.json",
         ],
     )
     assert result.exit_code == 0
