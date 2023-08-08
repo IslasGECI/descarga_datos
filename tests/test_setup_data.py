@@ -23,7 +23,8 @@ def tests_extract_filter_condition():
         "report": "muestreo_aves.pdf",
         "setup_data": [{"filter": "true", "season": filter_condition}],
     }
-    find_filter_condition(report_content)
+    obtained_condition = find_filter_condition(report_content)
+    assert obtained_condition == filter_condition
 
 
 def tests_find_report():
