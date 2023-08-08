@@ -9,7 +9,7 @@ def filter_date_by_condition(data_to_filter, conditional_year):
 
 
 def find_filter_condition(report_content):
-    pass
+    return report_content["setup_data"][0]["season"]
 
 
 def find_report(target_report, analyses_list):
