@@ -1,14 +1,28 @@
-from descarga_datos import filter_date_by_condition, find_report, read_json, find_filter_condition
+from descarga_datos import (
+    filter_date_by_condition,
+    find_report,
+    read_json,
+    find_filter_condition,
+    setup_data_by_report,
+)
 
 import pandas as pd
 
 
 conditional_year = "< 2021"
 
+data_path = "tests/data/nidos_busqueda_aves_marinas.csv"
+data_to_filter = pd.read_csv(data_path)
+target_report = "tamano_poblacional.pdf"
+json_path = "tests/data/analyses_tamanio.json"
+analyses_list = read_json(json_path)
+
+
+def test_setup_data_by_report():
+    setup_data_by_report(data_to_filter, target_report, analyses_list)
+
 
 def test_filter_date_by_condition():
-    data_path = "tests/data/nidos_busqueda_aves_marinas.csv"
-    data_to_filter = pd.read_csv(data_path)
     obtained_filtered_data = filter_date_by_condition(data_to_filter, conditional_year)
     expected_filtered_rows = 13
     obtained_filtered_data_length = len(obtained_filtered_data)
@@ -28,9 +42,6 @@ def tests_extract_filter_condition():
 
 
 def tests_find_report():
-    target_report = "tamano_poblacional.pdf"
-    json_path = "tests/data/analyses_tamanio.json"
-    analyses_list = read_json(json_path)
     obtained_content = find_report(target_report, analyses_list)
     assert "setup_data" in obtained_content.keys()
 
