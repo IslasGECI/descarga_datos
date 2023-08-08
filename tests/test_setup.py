@@ -27,4 +27,5 @@ def test_setup_cli():
     assert result.exit_code == 0
     filtered_data = pd.read_csv(data_path)
     assert len(filtered_data) < len(original_data)
+    assert filtered_data.columns == original_data.columns
     os.remove(data_path)
