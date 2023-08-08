@@ -1,4 +1,4 @@
-from descarga_datos import filter_date_by_condition, find_report
+from descarga_datos import filter_date_by_condition, find_report, read_json
 
 import pandas as pd
 
@@ -19,9 +19,10 @@ def test_filter_date_by_condition():
 
 def tests_find_report():
     target_report = "tamano_poblacional.pdf"
-    obtained_content = find_report(target_report)
+    analyses_list = read_json()
+    obtained_content = find_report(target_report, analyses_list)
     assert "setup_data" in obtained_content.keys()
 
     target_report = "densidad_kernel_gls.pdf"
-    obtained_content = find_report(target_report)
+    obtained_content = find_report(target_report, analyses_list)
     assert "setup_data" not in obtained_content.keys()
