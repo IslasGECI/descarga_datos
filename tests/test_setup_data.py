@@ -51,7 +51,7 @@ def tests_extract_filter_condition():
     assert obtained_condition == filter_condition
 
 
-def tests_find_report():
+def tests_extract_report_content():
     target_report = "tamano_poblacional.pdf"
     obtained_content = extract_report_content(target_report, analyses_list)
     assert "setup_data" in obtained_content.keys()
