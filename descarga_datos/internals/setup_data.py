@@ -2,7 +2,9 @@ import json
 
 
 def setup_data_by_report(data_to_filter, target_report, analyses_list):
-    pass
+    report_content = find_report(target_report, analyses_list)
+    filter_condition = find_filter_condition(report_content)
+    return filter_date_by_condition(data_to_filter, filter_condition)
 
 
 def filter_date_by_condition(data_to_filter, conditional_year):
