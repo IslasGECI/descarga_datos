@@ -1,53 +1,46 @@
 [
-    {
-      "name": "Densidad kernel de datos de gls",
-      "description": "Densidad kernel de datos de gls",
-      "image_tag": "1627",
-      "report": "densidad_kernel_gls.pdf",
-      "results": [
-      ],
-      "scripts": [
-      ],
-      "data": [
-        {
-            "source": "tabular_data_packages",
-            "version": "a8c6e87b6031f13f3dc01a645eb4a1f8c34e35f7",
-            "path": "nidos_busqueda_aves_marinas",
-            "type": "csv",
-            "filename": "nidos_busqueda_aves_marinas.csv"
-          }
-      ],
-      "requirements": []
-    },
-    {
-        "name": "Series de tiempo del tamaño poblacional de aves marinas en Isla Guadalupe",
-        "description": "Se reportan los resultados de la estimación poblacional de aves marinas en Isla Guadalupe",
-        "image_tag": "1627",
-        "report": "tamano_poblacional.pdf",
-        "results": [
-        ],
-        "scripts": [
-        ],
-        "data": [
-          {
-            "source": "tabular_data_packages",
-            "version": "b82cafc25c8f504783030cc081b8aa27889ab79c",
-            "path": "nidos_busqueda_aves_marinas",
-            "type": "csv",
-            "filename": "nidos_busqueda_aves_marinas.csv"
-          },
-          {
-            "source": "tabular_data_packages",
-            "version": "b82cafc25c8f504783030cc081b8aa27889ab79c",
-            "path": "madrigueras_cuadrantes_aves_marinas",
-            "type": "csv",
-            "filename": "madrigueras_cuadrantes_avesmarinas_todasislas_2015-2021.csv"
-          }
-        ],
-        "requirements": [],
-        "setup_data": [
-          {"filter": "true", "season": "< 2022"}
-        ]
+  {
+    "name": "Densidad kernel de datos de gls",
+    "description": "Densidad kernel de datos de gls",
+    "image_tag": "1627",
+    "report": "densidad_kernel_gls.pdf",
+    "results": [],
+    "scripts": [],
+    "data": [
+      {
+        "source": "tabular_data_packages",
+        "version": "a8c6e87b6031f13f3dc01a645eb4a1f8c34e35f7",
+        "path": "nidos_busqueda_aves_marinas",
+        "type": "csv",
+        "filename": "nidos_busqueda_aves_marinas.csv"
       }
-  ]
-  
+    ],
+    "requirements": []
+  },
+  {
+    "name": "Series de tiempo del tamaño poblacional de aves marinas en Isla Guadalupe",
+    "description": "Se reportan los resultados de la estimación poblacional de aves marinas en Isla Guadalupe",
+    "image_tag": "1627",
+    "report": "tamano_poblacional.pdf",
+    "results": [],
+    "scripts": [],
+    "data": [
+      {
+        "source": "tabular_data_packages",
+        "version": "b82cafc25c8f504783030cc081b8aa27889ab79c",
+        "path": "nidos_busqueda_aves_marinas",
+        "type": "csv",
+        "filename": "nidos_busqueda_aves_marinas.csv"
+      },
+      {
+        "source": "tabular_data_packages",
+        "version": "b82cafc25c8f504783030cc081b8aa27889ab79c",
+        "path": "madrigueras_cuadrantes_aves_marinas",
+        "type": "csv",
+        "filename": "madrigueras_cuadrantes_avesmarinas_todasislas_2015-2021.csv"
+      }
+    ],
+    "requirements": [],
+    "setup_data": [{ "filter": "true", "season": "< 2022" }]
+  }
+]
