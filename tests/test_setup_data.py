@@ -15,3 +15,8 @@ def test_filter_date_by_condition():
     assert obtained_filtered_data_length == expected_filtered_rows
     obtained_columns = obtained_filtered_data.columns
     assert "year" not in obtained_columns
+
+
+def tests_find_report():
+    target_report = "tamano_poblacional.pdf"
+    find_report(target_report)
