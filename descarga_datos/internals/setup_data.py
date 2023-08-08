@@ -9,7 +9,6 @@ def filter_date_by_condition(data_to_filter, conditional_year):
 
 
 def find_report(target_report, analyses_list):
-    analyses_list = read_json()
     target_report_content = [
         report_content
         for report_content in analyses_list
