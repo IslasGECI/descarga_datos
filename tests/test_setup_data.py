@@ -19,7 +19,10 @@ analyses_list = read_json(json_path)
 
 
 def test_setup_data_by_report():
-    setup_data_by_report(data_to_filter, target_report, analyses_list)
+    obtained = setup_data_by_report(data_to_filter, target_report, analyses_list)
+    data_to_filter_len = len(data_to_filter)
+    obtained_filtered_len = len(obtained)
+    assert obtained_filtered_len < data_to_filter_len
 
 
 def test_filter_date_by_condition():
