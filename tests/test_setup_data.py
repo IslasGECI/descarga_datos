@@ -24,6 +24,12 @@ def test_setup_data_by_report():
     obtained_filtered_len = len(obtained)
     assert obtained_filtered_len < data_to_filter_len
 
+    report_without_setup = "densidad_kernel_gls.pdf"
+    obtained = setup_data_by_report(data_to_filter, report_without_setup, analyses_list)
+    data_to_filter_len = len(data_to_filter)
+    obtained_filtered_len = len(obtained)
+    assert obtained_filtered_len == data_to_filter_len
+
 
 def test_filter_date_by_condition():
     obtained_filtered_data = filter_date_by_condition(data_to_filter, conditional_year)
