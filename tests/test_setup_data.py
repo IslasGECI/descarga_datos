@@ -19,4 +19,5 @@ def test_filter_date_by_condition():
 
 def tests_find_report():
     target_report = "tamano_poblacional.pdf"
-    find_report(target_report)
+    obtained_content = find_report(target_report)
+    assert "setup_data" in obtained_content.keys()
