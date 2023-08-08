@@ -9,11 +9,16 @@ def filter_date_by_condition(data_to_filter, conditional_year):
 
 
 def find_report(target_report):
-    with open("tests/data/analyses_tamanio.json") as json_analyses:
-        lista_analisis = json.load(json_analyses)
-    report_index = [
+    analyses_list = read_json()
+    target_report_content = [
         report_content
-        for report_content in lista_analisis
+        for report_content in analyses_list
         if report_content["report"] == target_report
     ]
-    return report_index[0]
+    return target_report_content[0]
+
+
+def read_json():
+    with open("tests/data/analyses_tamanio.json") as json_analyses:
+        analyses_list = json.load(json_analyses)
+    return analyses_list
