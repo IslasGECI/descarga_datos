@@ -1,12 +1,11 @@
-from .internals import Analysis
+from .internals import Analysis, read_json
 from .network import download_file_from_repo
 import sys
 import json
 
 
 def descarga_archivo(file_name, destination_folder, path):
-    with open("analyses.json") as json_analyses:
-        lista_analisis = json.load(json_analyses)
+    lista_analisis = read_json("analyses.json")
     for diccionario_analisis in lista_analisis:
         analisis = Analysis(**diccionario_analisis)
         if analisis.is_dependent_on_datafile(path, file_name):
