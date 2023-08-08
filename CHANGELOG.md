@@ -15,6 +15,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.4.0] - 2023-08-08
+
+### Added
+
+- Entrypoint `setup_data`
+
+
 ## [0.3.3] - 2023-08-07
 
 ### Added
@@ -24,4 +31,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Use pyproject to install package
 - Add docker compose
 
+[0.4.0]: https://github.com/IslasGECI/descarga_datos/compare/v0.3.3...v0.4.0
 [0.3.3]: https://github.com/IslasGECI/descarga_datos/compare/v0.3.2...v0.3.3
