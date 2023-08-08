@@ -19,7 +19,8 @@ def test_filter_date_by_condition():
 
 def tests_find_report():
     target_report = "tamano_poblacional.pdf"
-    analyses_list = read_json()
+    json_path = "tests/data/analyses_tamanio.json"
+    analyses_list = read_json(json_path)
     obtained_content = find_report(target_report, analyses_list)
     assert "setup_data" in obtained_content.keys()
 

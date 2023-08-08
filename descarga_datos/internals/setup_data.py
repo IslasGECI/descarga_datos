@@ -17,7 +17,7 @@ def find_report(target_report, analyses_list):
     return target_report_content[0]
 
 
-def read_json():
-    with open("tests/data/analyses_tamanio.json") as json_analyses:
+def read_json(json_path):
+    with open(json_path) as json_analyses:
         analyses_list = json.load(json_analyses)
     return analyses_list
