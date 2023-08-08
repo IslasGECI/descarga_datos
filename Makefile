@@ -55,8 +55,6 @@ mutants: setup
 tests:
 	pytest --verbose
 
-tests_version:
-	./tests/test_version.sh
 
 coverage: setup
 	pytest --cov=${repo} --cov-report=xml --verbose && \
