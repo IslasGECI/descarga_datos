@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.4.1] - 2023-10-24
+
+### Fixed
+- Drop NaN values in `Fecha` before extract year
+
 ## [0.4.0] - 2023-08-08
 
 ### Added
