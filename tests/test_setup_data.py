@@ -66,5 +66,5 @@ def tests_extract_report_content():
     assert "setup_data" not in obtained_content.keys()
 
     target_report = "densidad_kernel_gls"
-    with pytest.raises(ValueError):
+    with pytest.raises(ValueError, match=r"^There is not report .*"):
         extract_report_content(target_report, analyses_list)
