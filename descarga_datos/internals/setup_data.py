@@ -8,10 +8,11 @@ def setup_data_by_report(data_to_filter, target_report, analyses_list):
 
 
 def filter_date_by_condition(data_to_filter, conditional_year):
-    copy_data_to_filter = data_to_filter.copy()
-    copy_data_to_filter["year"] = copy_data_to_filter["Fecha"].str.slice(7).astype(int)
     if conditional_year is None:
         return data_to_filter
+    copy_data_to_filter = data_to_filter.copy()
+    copy_data_to_filter.dropna(subset=["Fecha"], inplace=True)
+    copy_data_to_filter["year"] = copy_data_to_filter["Fecha"].str.slice(7).astype(int)
     copy_data_to_filter.query("year " + conditional_year, inplace=True)
     return copy_data_to_filter.drop(columns=["year"])
 
