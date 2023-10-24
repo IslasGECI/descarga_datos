@@ -40,6 +40,11 @@ def test_filter_date_by_condition():
     obtained_columns = obtained_filtered_data.columns
     assert "year" not in obtained_columns
 
+    obtained_filtered_data = filter_date_by_condition(data_to_filter, None)
+    expected_filtered_rows = 23
+    obtained_filtered_data_length = len(obtained_filtered_data)
+    assert obtained_filtered_data_length == expected_filtered_rows
+
 
 def tests_extract_filter_condition():
     filter_condition = "< 2019"
