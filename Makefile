@@ -35,7 +35,9 @@ format:
 	black --line-length 100 ${repo}
 	black --line-length 100 tests
 
-init: setup tests
+init: init_git setup tests
+
+init_git:
 	git config --global --add safe.directory /workdir
 	git config --global user.name "Ciencia de Datos • GECI"
 	git config --global user.email "ciencia.datos@islas.org.mx"
