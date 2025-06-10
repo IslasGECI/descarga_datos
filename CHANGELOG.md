@@ -15,6 +15,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.4.2] - 2025-06-10
+
+### Fixed
+- Update to python 3.12
+- Resolve `requests` dependency
+
 ## [0.4.1] - 2023-10-24
 
 ### Fixed
