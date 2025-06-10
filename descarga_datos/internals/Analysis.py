@@ -57,28 +57,20 @@ class Analysis:
     >>> analisis.get_url_to_datafile('archivo_ejemplo.csv')
     """
 
-    def __init__(
-        self,
-        name: str,
-        description: str = None,
-        image_tag: str = None,
-        docker_parent_image: str = None,
-        report: str = None,
-        results: list = None,
-        scripts: list = None,
-        data: list = None,
-        requirements: list = None,
-        setup_data: list = None,
-    ):
-        self._name = name
-        self._description = description
-        self._image_tag = image_tag
-        self._docker_parent_image = docker_parent_image
-        self._report = report
-        self._results = results
-        self._scripts = scripts
-        self._data = self._construct_datafile_array(data)
-        self._setup_data = setup_data
+    def __init__(self, **kwargs):
+        dictionary = {key: value for (key, value) in kwargs.items()}
+        self._name = dictionary["name"]
+        self._description = dictionary["description"]
+        self._image_tag = dictionary["image_tag"]
+        self._report = dictionary["report"]
+        self._results = dictionary["results"]
+        self._scripts = dictionary["scripts"]
+        self._data = self._construct_datafile_array(dictionary["data"])
+        dictionary_keys = dictionary.keys()
+        if "setup_data" in dictionary_keys:
+            self._setup_data = dictionary["setup_data"]
+        if "docker_parent_image" in dictionary_keys:
+            self._docker_parent_image = dictionary["docker_parent_image"]
 
     def _construct_datafile_array(self, data):
         archivos_datos = []
