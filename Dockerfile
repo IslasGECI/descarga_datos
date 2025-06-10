@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.12
 WORKDIR /workdir
 COPY . .
 RUN pip install \
@@ -9,4 +9,3 @@ RUN pip install \
     pylint \
     pytest \
     pytest-cov
-CMD make
