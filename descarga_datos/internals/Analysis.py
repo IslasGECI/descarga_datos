@@ -58,19 +58,20 @@ class Analysis:
     """
 
     def __init__(self, **kwargs):
-        dictionary = {key: value for (key, value) in kwargs.items()}
-        self._name = dictionary["name"]
-        self._description = dictionary["description"]
-        self._image_tag = dictionary["image_tag"]
-        self._report = dictionary["report"]
-        self._results = dictionary["results"]
-        self._scripts = dictionary["scripts"]
-        self._data = self._construct_datafile_array(dictionary["data"])
-        dictionary_keys = dictionary.keys()
-        if "setup_data" in dictionary_keys:
-            self._setup_data = dictionary["setup_data"]
-        if "docker_parent_image" in dictionary_keys:
-            self._docker_parent_image = dictionary["docker_parent_image"]
+        self.dictionary = {key: value for (key, value) in kwargs.items()}
+        self._name = self.dictionary["name"]
+        self._description = self.dictionary["description"]
+        self._image_tag = self.dictionary["image_tag"]
+        self._report = self.dictionary["report"]
+        self._results = self.dictionary["results"]
+        self._scripts = self.dictionary["scripts"]
+        self._data = self._construct_datafile_array(self.dictionary["data"])
+        self._setup_data = self._check_key("setup_data")
+        self._docker_parent_image = self._check_key("docker_parent_image")
+
+    def _check_key(self, key):
+        if key in self.dictionary.keys():
+            return self.dictionary[key]
 
     def _construct_datafile_array(self, data):
         archivos_datos = []
