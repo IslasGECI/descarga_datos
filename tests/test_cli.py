@@ -1,5 +1,8 @@
 from descarga_datos.cli import descarga_archivo, cli
+
+import geci_test_tools as gtt
 import json
+import pandas as pd
 import os
 import sys
 
@@ -45,6 +48,13 @@ TEXTO_ANALYSIS = """[
                 "path": "camaras_trampa_gatos_isla_guadalupe",
                 "type": "json",
                 "filename": "datapackage.json"
+            },
+            {
+                "source": "tabular_data_packages",
+                "version": "25551eb1727ae98cc4d159fe54c82b311bd7412d",
+                "path": "esfuerzos_capturas_gatos_socorro",
+                "type": "csv",
+                "filename": "trap_daily_status_socorro.csv"
             }
         ],
         "requirements": []
@@ -56,12 +66,23 @@ if not os.path.exists("./results"):
 
 
 def test_descarga_archivo():
-    archivo_existe = os.path.isfile("./analyses.json")
-    if not archivo_existe:
-        with open("analyses.json", "w") as archivo_salida:
-            archivo_salida.write(TEXTO_ANALYSIS)
-            archivo_salida.close()
+    analyses_path = "./analyses.json"
+    gtt.if_exist_remove(analyses_path)
+    with open("analyses.json", "w") as archivo_salida:
+        archivo_salida.write(TEXTO_ANALYSIS)
+        archivo_salida.close()
     descarga_archivo(".", "./results", "camaras_trampa_gatos_isla_guadalupe")
+    target_path = {
+        "filename": "trap_daily_status_socorro.csv",
+        "destination_folder": "./results",
+        "path": "esfuerzos_capturas_gatos_socorro",
+    }
+    print(target_path)
+    descarga_archivo(
+        target_path["filename"], target_path["destination_folder"], target_path["path"]
+    )
+    obtained_data = pd.read_csv(f"{target_path['destination_folder']}/{target_path['filename']}")
+    assert "Fecha" in obtained_data.columns
 
 
 def assert_descarga_2_datapackage(path, name):
