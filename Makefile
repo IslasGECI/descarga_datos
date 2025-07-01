@@ -76,6 +76,6 @@ green: format
 
 refactor: format
 	pytest --verbose \
-	&& (git add ${repo}/*.py ${repo}/*/*.py tests/*.py && git commit -m "♻️  Refactor") \
+	&& (git add ${repo}/*.py ${repo}/*/*.py tests/*.py && git commit -m "♻️  Refactor ${message}") \
 	|| git restore ${repo}/*.py ${repo}/*/*.py tests/*.py
 	chmod g+w -R .
