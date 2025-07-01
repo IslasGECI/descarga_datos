@@ -12,10 +12,14 @@ def descarga_archivo(file_name, destination_folder, path):
             download_file_from_repo(
                 analisis.get_url_to_datafile(path, file_name), destination_folder
             )
-            file_path = f"{destination_folder}/{file_name}"
-            file_df = pd.read_csv(file_path)
-            file_df.rename(columns={"Date": "Fecha"}, inplace=True)
-            file_df.to_csv(file_path, index=False)
+            _adapt_columns(file_name, destination_folder)
+
+
+def _adapt_columns(file_name, destination_folder):
+    file_path = f"{destination_folder}/{file_name}"
+    file_df = pd.read_csv(file_path)
+    file_df.rename(columns={"Date": "Fecha"}, inplace=True)
+    file_df.to_csv(file_path, index=False)
 
 
 def cli():
