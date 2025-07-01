@@ -77,12 +77,14 @@ def test_descarga_archivo():
         "destination_folder": "./results",
         "path": "esfuerzos_capturas_gatos_socorro",
     }
-    print(target_path)
     descarga_archivo(
         target_path["filename"], target_path["destination_folder"], target_path["path"]
     )
     obtained_data = pd.read_csv(f"{target_path['destination_folder']}/{target_path['filename']}")
-    assert "Fecha" in obtained_data.columns
+    obtained_columns = obtained_data.columns
+    assert "Fecha" in obtained_columns
+    expected_columns = 5
+    assert len(obtained_columns) == expected_columns
 
 
 def assert_descarga_2_datapackage(path, name):
