@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.4.3] - 2025-07-01
+
+### Fixed
+- CLI command `descarga-archivo` now has a contract: Always return column date type as "Fecha".
+
 ## [0.4.2] - 2025-06-10
 
 ### Fixed
