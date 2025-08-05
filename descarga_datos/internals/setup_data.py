@@ -38,7 +38,7 @@ def extract_report_content(target_report, analyses_list):
 
 
 def _adapt_columns(file_name, destination_folder):
-    extension = file_name.split(".")[-1]
+    extension = file_name.split(".").pop()
     if extension == "csv":
         file_path = f"{destination_folder}/{file_name}"
         file_df = pd.read_csv(file_path)
