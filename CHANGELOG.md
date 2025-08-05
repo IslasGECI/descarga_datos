@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+## [0.4.5] - 2025-08-05
+
+### Fixed
+- CLI command `descarga-archivo` no longer stops when a non-CSV format is passed. It now issues a warning only when a non-CSV format is passed.
+
 ## [0.4.4] - 2025-08-05
 
 ### Fixed
