@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+import warnings
 
 
 def setup_data_by_report(data_to_filter, target_report, analyses_list):
@@ -37,10 +38,14 @@ def extract_report_content(target_report, analyses_list):
 
 
 def _adapt_columns(file_name, destination_folder):
-    file_path = f"{destination_folder}/{file_name}"
-    file_df = pd.read_csv(file_path)
-    file_df.rename(columns={"Date": "Fecha"}, inplace=True)
-    file_df.to_csv(file_path, index=False)
+    extension = file_name.split(".")[-1]
+    if extension == "csv":
+        file_path = f"{destination_folder}/{file_name}"
+        file_df = pd.read_csv(file_path)
+        file_df.rename(columns={"Date": "Fecha"}, inplace=True)
+        file_df.to_csv(file_path, index=False)
+        pass
+    warnings.warn("This file is not a csv. Column renaming is ignored.", UserWarning)
 
 
 def read_json(json_path):
