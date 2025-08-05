@@ -1,7 +1,6 @@
 from .internals import Analysis, read_json
 from .network import download_file_from_repo
 from descarga_datos.internals.setup_data import _adapt_columns
-import pandas as pd
 import sys
 
 
