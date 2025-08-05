@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 
 
 def setup_data_by_report(data_to_filter, target_report, analyses_list):
@@ -33,6 +34,13 @@ def extract_report_content(target_report, analyses_list):
     if len(target_report_content) == 0:
         raise ValueError(f"There is not report {target_report}")
     return target_report_content[0]
+
+
+def _adapt_columns(file_name, destination_folder):
+    file_path = f"{destination_folder}/{file_name}"
+    file_df = pd.read_csv(file_path)
+    file_df.rename(columns={"Date": "Fecha"}, inplace=True)
+    file_df.to_csv(file_path, index=False)
 
 
 def read_json(json_path):
