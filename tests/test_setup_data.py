@@ -23,7 +23,7 @@ analyses_list = read_json(json_path)
 def test_adapt_columns():
     file_name = "analyses_tamanio.json"
     destinantion_folder = "tests/data"
-    with pytest.warns(UserWarning, match="This file is not a csv. Rename columns is ignored."):
+    with pytest.warns(UserWarning, match="This file is not a csv. Column renaming is ignored."):
         _adapt_columns(file_name, destinantion_folder)
 
 
