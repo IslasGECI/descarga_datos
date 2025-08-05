@@ -44,7 +44,7 @@ def _adapt_columns(file_name, destination_folder):
         file_df = pd.read_csv(file_path)
         file_df.rename(columns={"Date": "Fecha"}, inplace=True)
         file_df.to_csv(file_path, index=False)
-        pass
+        return None
     warnings.warn("This file is not a csv. Column renaming is ignored.", UserWarning)
 
 
