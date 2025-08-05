@@ -6,9 +6,12 @@ from descarga_datos.internals.setup_data import (
     find_filter_condition,
     setup_data_by_report,
 )
+import geci_test_tools as gtt
 
 import pandas as pd
 import pytest
+import warnings
+from shutil import copy
 
 
 conditional_year = "< 2021"
@@ -25,6 +28,16 @@ def test_adapt_columns():
     destinantion_folder = "tests/data"
     with pytest.warns(UserWarning, match=r"^This file is not a csv. Column renaming is ignored."):
         _adapt_columns(file_name, destinantion_folder)
+
+    path_of_copy = "tests/data/nidos_busqueda_aves_marinas_copy.csv"
+    copy("tests/data/nidos_busqueda_aves_marinas.csv", path_of_copy)
+    file_name = "nidos_busqueda_aves_marinas_copy.csv"
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error")
+        _adapt_columns(file_name, destinantion_folder)
+
+    gtt.if_exist_remove(path_of_copy)
 
 
 def test_setup_data_by_report():
