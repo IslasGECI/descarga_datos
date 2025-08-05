@@ -1,4 +1,5 @@
-from descarga_datos import (
+from descarga_datos.internals.setup_data import (
+    _adapt_columns,
     filter_date_by_condition,
     extract_report_content,
     read_json,
@@ -17,6 +18,12 @@ data_to_filter = pd.read_csv(data_path)
 target_report = "tamano_poblacional.pdf"
 json_path = "tests/data/analyses_tamanio.json"
 analyses_list = read_json(json_path)
+
+
+def test_adapt_columns():
+    file_name = "analyses_tamanio.json"
+    destinantion_folder = "tests/data"
+    _adapt_columns(file_name, destinantion_folder)
 
 
 def test_setup_data_by_report():
