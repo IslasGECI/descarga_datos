@@ -6,7 +6,6 @@ import pandas as pd
 import os
 import sys
 
-
 TEXTO_ANALYSIS = """[
     {
         "image_tag": "d52d",

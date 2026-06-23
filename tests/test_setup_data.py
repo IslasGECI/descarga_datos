@@ -13,7 +13,6 @@ import pytest
 import warnings
 from shutil import copy
 
-
 conditional_year = "< 2021"
 
 data_path = "tests/data/nidos_busqueda_aves_marinas.csv"
