@@ -41,3 +41,24 @@ def get_password_from_enviormet_variable() -> str:
     >>> contrasenia = descarga_datos.util.get_password_from_enviormet_variable()
     """
     return os.environ["BITBUCKET_PASSWORD"]
+
+
+def get_token_from_enviormet_variable() -> str:
+    """
+    Función que regresa el token de Bitbucket desde la variable de entorno
+    BITBUCKET_API_TOKEN
+
+    Parámetros
+    ----------
+    Ninguno
+
+    Notas
+    -----
+    Ninguna
+
+    Ejemplos
+    --------
+    Obtener token
+    >>> token = descarga_datos.util.get_token_from_enviormet_variable()
+    """
+    return os.environ["BITBUCKET_API_TOKEN"]
