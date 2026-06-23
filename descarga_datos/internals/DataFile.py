@@ -78,26 +78,15 @@ class DataFile:
 
     def get_url_to_file(self) -> str:
         """
-        Regresa el url de donde se puede descargar el archivo desde Bitbucket.
+        Returns the URL to download the file from Bitbucket.
 
-        Parámetros
-        ----------
-        `user str`
-            Usuario que es dueño del repositorio de datos, por default será IslasGECI
-
-        Notas
-        -----
-        Ninguna
-
-        Ejemplos
+        Examples
         --------
-        Obtener url a archivo
-        >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
+        Get file URL
+        >>> archivo = descarga_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
                                                          "datos.csv", "9cc34")
         >>> archivo.get_url_to_file()
-        'https://bitbucket.org/IslasGECI/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
-        >>> archivo.get_url_to_file(user="usuario")
-        'https://bitbucket.org/usuario/repo_datos/raw/9cc34/carpeta_datos/datos.csv'
+        'https://usuario:contraseña@api.bitbucket.org/2.0/repositories/IslasGECI/repo_datos/src/9cc34/carpeta_datos/datos.csv'
         """
         bitbucket_username = get_user_from_enviorment_variable()
         bitbucket_password = get_password_from_enviormet_variable()
