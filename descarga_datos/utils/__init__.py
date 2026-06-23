@@ -1,4 +1,4 @@
-from .enviroment import (
+from .environment import (
     get_email_from_environment_variable,
     get_password_from_environment_variable,
     get_user_from_environment_variable,
