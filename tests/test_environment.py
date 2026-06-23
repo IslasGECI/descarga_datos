@@ -2,6 +2,7 @@ import os
 
 from descarga_datos import get_user_from_enviorment_variable
 from descarga_datos import get_password_from_enviormet_variable
+from descarga_datos import get_token_from_enviormet_variable
 
 
 def test_get_user_from_enviorment_variable():
@@ -14,3 +15,9 @@ def test_get_password_from_enviormet_variable():
     obtained_password = get_password_from_enviormet_variable()
     expected_password = os.environ["BITBUCKET_PASSWORD"]
     assert expected_password == obtained_password
+
+
+def test_get_token_from_enviormet_variable():
+    obtained_token = get_token_from_enviormet_variable()
+    expected_token = os.environ["BITBUCKET_API_TOKEN"]
+    assert expected_token == obtained_token
