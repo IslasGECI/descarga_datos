@@ -62,3 +62,24 @@ def get_token_from_enviormet_variable() -> str:
     >>> token = descarga_datos.util.get_token_from_enviormet_variable()
     """
     return os.environ["BITBUCKET_API_TOKEN"]
+
+
+def get_email_from_enviormet_variable() -> str:
+    """
+    Función que regresa el correo electrónico de Bitbucket desde la variable de
+    entorno BITBUCKET_EMAIL
+
+    Parámetros
+    ----------
+    Ninguno
+
+    Notas
+    -----
+    Ninguna
+
+    Ejemplos
+    --------
+    Obtener correo electrónico
+    >>> email = descarga_datos.util.get_email_from_enviormet_variable()
+    """
+    return os.environ["BITBUCKET_EMAIL"]
