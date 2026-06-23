@@ -48,3 +48,11 @@ def test_get_url():
         + analisis["filename"]
     )
     assert expected_url in obtained_url
+
+
+def test_get_url_uses_token():
+    from descarga_datos import get_token_from_environment_variable
+
+    token = get_token_from_environment_variable()
+    url = datafile.get_url_to_file()
+    assert token in url
