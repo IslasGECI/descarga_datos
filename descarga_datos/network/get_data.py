@@ -4,33 +4,21 @@ import requests
 
 def download_file_from_repo(url: str, filename: str):
     """
-    Función que permite descargar archivos desde repositorios de bitbucket
+    Downloads a file from a Bitbucket repository.
 
-    Parámetros
+    Parameters
     ----------
     `url : str`
-        Dirección de Bitbucket donde se encuentra el archivo
+        URL of the file in the Bitbucket repository
 
-    `destionation_filename: str`
-        Nombre y dirección del archivo donde se guardarán los datos descargados
+    `filename : str`
+        Local path where the downloaded file will be saved
 
-    `user : str`
-        Nombre de usuario de Bitbucket
-
-    `password : str`
-        Contraseña del usuario
-
-    Notas
-    -----
-    Ninguna
-
-    Ejemplos
+    Examples
     --------
-    Descargar un archivo
-    >>> usuario = descarga_datos.util.get_user_from_enviorment_variable()
-    >>> contrasenia = descarga_datos.util.get_password_from_enviormet_variable()
+    Download a file
     >>> url = 'https://bitbucket.org/usuario_prueba/repo_datos/raw/9fd54/datos.xlsx'
-    >>> download_file(url, 'inst/extdata/datos.xlsx', usuario, contrasenia)
+    >>> download_file_from_repo(url, 'inst/extdata/datos.xlsx')
     """
     directory = os.path.split(url)[1]
     path = os.path.join(filename, directory)
