@@ -1,3 +1,4 @@
-__pycache__/
 .mutmut-cache
+__pycache__/
 analyses.json
+results/

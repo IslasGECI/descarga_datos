@@ -1,6 +1,6 @@
 from descarga_datos.utils import (
-    get_password_from_enviormet_variable,
-    get_user_from_enviorment_variable,
+    get_password_from_environment_variable,
+    get_user_from_environment_variable,
 )
 
 
@@ -88,7 +88,7 @@ class DataFile:
         >>> archivo.get_url_to_file()
         'https://usuario:contraseña@api.bitbucket.org/2.0/repositories/IslasGECI/repo_datos/src/9cc34/carpeta_datos/datos.csv'
         """
-        bitbucket_username = get_user_from_enviorment_variable()
-        bitbucket_password = get_password_from_enviormet_variable()
+        bitbucket_username = get_user_from_environment_variable()
+        bitbucket_password = get_password_from_environment_variable()
         base_url = f"https://{bitbucket_username}:{bitbucket_password}@api.bitbucket.org/2.0/repositories/IslasGECI/"
         return base_url + f"{self._source}/src/{self._version}/{self._path}/{self._filename}"
