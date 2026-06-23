@@ -1,9 +1,40 @@
-# descarga_datos <a href="https://www.islas.org.mx/"><img src="https://www.islas.org.mx/img/logo.svg" align="right" width="256" /></a>
+# descarga_datos
 
-[![codecov](https://codecov.io/gh/IslasGECI/descarga_datos/branch/master/graph/badge.svg?token=oeUzR6GLF5)](https://codecov.io/gh/IslasGECI/descarga_datos)
+Download data files from Bitbucket repositories using the definitions in `analyses.json`.
 
-Este repositorio contiene una CLI con la que se podrán descargar los datos
-especificados en el archivo `analyses.json`.
+## What it does
 
-## Instalación
-RUN pip install git+https://github.com/IslasGECI/descarga_datos.git
+This tool reads an `analyses.json` file that describes which data files are needed for a set of analyses. It downloads each file from a Bitbucket repository and saves it locally so you can use it in your analysis pipeline.
+
+## Before you start
+
+You need:
+
+- A Bitbucket account with access to the GECI repositories
+- An [API token](https://bitbucket.org/account/settings/app-passwords/) with read permissions
+- Your Atlassian account email address
+
+Set these environment variables:
+
+```bash
+export BITBUCKET_EMAIL="your.email@example.com"
+export BITBUCKET_API_TOKEN="your-api-token"
+```
+
+## Run the project
+
+### With Docker (recommended)
+
+```bash
+docker compose build
+docker compose run --rm islasgeci descarga_datos <filename> <destination_folder> <path>
+```
+
+### Without Docker
+
+```bash
+pip install git+https://github.com/IslasGECI/descarga_datos.git
+descarga_datos <filename> <destination_folder> <path>
+```
+
+The tool reads `analyses.json` from the current directory and downloads matching files.
