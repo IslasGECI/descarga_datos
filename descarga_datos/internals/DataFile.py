@@ -6,52 +6,50 @@ from descarga_datos.utils import (
 
 class DataFile:
     """
-    Clase que representa un archivo de datos especificado como dependencia de
-    algún analisis en analyses.json
+    Represents a data file specified as a dependency of an analysis in
+    analyses.json.
 
-    Parámetros
+    Parameters
     ----------
     `source : str`
-        Nombre del repositorio donde se encuentran los datos consignados
+        Name of the repository where the data is stored
 
     `path : str`
-        Ruta donde se encuentran consignados los datos dentro del repositorio
+        Path to the data inside the repository
 
     `filename : str`
-        Nombre del archivo de datos
+        Name of the data file
 
     `version : str`
-        Hash de la consignación en la que se encuentran los datos
+        Commit hash of the version where the data was committed
 
     `type : str`
-        Cadena de texto que representa el tipo de datos, ej. datapackage, gpx,
-        csv, excel.
+        String representing the data type, e.g. datapackage, gpx, csv, excel
 
-    Atributos
+    Attributes
     ----------
     `filename : str`
-        Cadena que representa el nombre del archivo
+        Name of the file
 
     `path : str`
-        Cadena que representa la ruta de consignación del archivo
+        Path of the file within the repository
 
-
-    Métodos
+    Methods
     -------
-    `get_url_to_file(user: str): str`
-        Regresa el url de donde se puede descargar el archivo de datos
+    `get_url_to_file(): str`
+        Returns the URL from which the data file can be downloaded
 
-    Notas
+    Notes
     -----
     None
 
-    Ejemplos
+    Examples
     --------
-    Crear un archivo
-    >>> archivo = descargar_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
-                                                     "datos.csv", "9cc34")
-    Obtener url a archivo
-    >>> archivo.get_url_to_file()
+    Create a file
+    >>> file = descarga_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
+                                                  "datos.csv", "9cc34")
+    Get file URL
+    >>> file.get_url_to_file()
     'https://bitbucket.org/IslasGECI/repo_datos_inventado/raw/9cc34/carpeta_datos/datos.csv'
     """
 
@@ -65,14 +63,14 @@ class DataFile:
     @property
     def filename(self):
         """
-        Regresa el nombre del archivo
+        Return the name of the file.
         """
         return self._filename
 
     @property
     def path(self):
         """
-        Regresa el path
+        Return the path of the file.
         """
         return self._path
 
