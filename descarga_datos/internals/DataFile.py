@@ -86,7 +86,7 @@ class DataFile:
         >>> archivo = descarga_datos.internals.DataFile("repo_datos_inventado", "carpeta_datos",
                                                          "datos.csv", "9cc34")
         >>> archivo.get_url_to_file()
-        'https://usuario:contraseña@api.bitbucket.org/2.0/repositories/IslasGECI/repo_datos/src/9cc34/carpeta_datos/datos.csv'
+        'https://user:password@api.bitbucket.org/2.0/repositories/IslasGECI/repo_datos/src/9cc34/carpeta_datos/datos.csv'
         """
         bitbucket_username = get_user_from_environment_variable()
         bitbucket_password = get_password_from_environment_variable()
