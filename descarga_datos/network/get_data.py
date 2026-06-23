@@ -20,8 +20,8 @@ def download_file_from_repo(url: str, filename: str):
     >>> url = 'https://bitbucket.org/usuario_prueba/repo_datos/raw/9fd54/datos.xlsx'
     >>> download_file_from_repo(url, 'inst/extdata/datos.xlsx')
     """
-    directory = os.path.split(url)[1]
-    path = os.path.join(filename, directory)
+    file_name = os.path.split(url)[1]
+    path = os.path.join(filename, file_name)
     response = requests.request("GET", url)
     with open(path, "wb") as f:
         f.write(response.content)
